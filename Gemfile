@@ -25,6 +25,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 #ログイン機能
 gem "devise"
+#LINEログイン機能
+gem "omniauth-line"
+gem "omniauth", "~>1.9.1"
+#環境変数設定
+gem "dotenv-rails"
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
