@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   #ホワイトリスト許可host ngrokでURL再発行したら以下も書き換え
-  config.hosts << "87ceeace7b2e.ngrok.io"
+  config.hosts << "8a0ecc533eaf.ngrok.io"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
