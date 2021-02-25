@@ -17,12 +17,6 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 #ログイン機能
 gem "devise"
 #LINEログイン機能
@@ -30,6 +24,16 @@ gem "omniauth-line"
 gem "omniauth", "~>1.9.1"
 #環境変数設定
 gem "dotenv-rails"
+#slim導入
+gem "slim-rails"
+#html.erbをhtmle.slimに変換
+gem "html2slim"
+#ターミナル出力整形
+gem "awesome_print"
+#ビュー整形
+gem "bootstrap-sass"
+gem "jquery-rails"
+
 
 
 # Reduces boot times through caching; required in config/boot.rb
