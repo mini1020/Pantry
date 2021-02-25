@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_014121) do
+ActiveRecord::Schema.define(version: 2021_02_25_220308) do
+
+  create_table "foods", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "quantity"
+    t.date "purchase", null: false
+    t.date "expiration"
+    t.date "notice"
+    t.integer "storage_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["storage_id"], name: "index_foods_on_storage_id"
+  end
+
+  create_table "storages", force: :cascade do |t|
+    t.string "place", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_storages_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +47,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_014121) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "foods", "storages"
+  add_foreign_key "storages", "users"
 end
