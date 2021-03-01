@@ -1,3 +1,12 @@
-h1
-  | 食品管理アプリケーション
-= link_to "ログアウト", destroy_user_session_path, method: :delete
+/ <h1></h1> → h1、<p></p> → |、<%= %> → =
+- provide(:title, "Top")
+.content
+  .content__app-description
+    h1 Pantry 
+    | 日々の食品管理をお手伝いします。
+    br
+    = link_to "ログイン", "#", class: "btn"
+    br
+    | または
+    br
+    = link_to "ユーザー登録", "#", class: "btn"

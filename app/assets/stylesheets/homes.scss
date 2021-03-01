@@ -1,0 +1,15 @@
+.content {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.content .content__app-description {
+  color: #eceab7;
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
