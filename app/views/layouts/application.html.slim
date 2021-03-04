@@ -1,11 +1,19 @@
+/ slimとは
+/ Ruby製のテンプレートエンジン、高速・軽量
+/ htmlの閉じタグ不要、条件分岐などのend不要、インデントによって階層構造を表現するためずれるとエラーになる
+
 doctype html
 html
   head
     title
-      | Pantry
+      = full_title(yield(:title))
+       | Pantry
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = render "layouts/shim"
   body
-    = yield
+    = render "layouts/header"
+    .container
+      = yield
