@@ -12,13 +12,8 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js" 
+    = render "layouts/shim"
   body
-    header
-      .navbar.navbar-fixed-top
-        .container
-          = link_to "Pantry", "#", id: "logo"
-          = link_to "ログイン", "#", class: "btn"
-          = link_to "ユーザー登録", "#", class: "btn"
+    = render "layouts/header"
     .container
       = yield

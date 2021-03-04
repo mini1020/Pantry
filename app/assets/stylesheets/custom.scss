@@ -8,6 +8,10 @@ body {
   background-color: #491a00;
 }
 
+section {
+  overflow: auto;
+}
+
 /* 文字デザイン */
 
 h1, h2, h3, h4, h5, h6 {
@@ -15,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 6em;
+  font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -31,24 +35,56 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 1.5em;
   line-height: 1.7em;
 }
 
-/* ヘッダー */
-
+/* header */
 #logo {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   float: left;
   margin-right: 10px;
-  font-size: 3em;
+  font-size: 4em;
   color: #eceab7;
   letter-spacing: -1px;
-  padding-top: 9px;
+  padding-top: 2px;
   font-weight: bold;
 }
 
 #logo:hover {
   color: #eceab7;
   text-decoration: none;
+}
+
+.navbar-nav > li > a.nav__btn {
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 1.5em;
+  color: #eceab7;
+  background-color: #957275;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.navbar-nav > li > a.nav__btn:hover {
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 1.5em;
+  color: #957275;
+  background-color: #eceab7;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* body */
+.body__btn {
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 0.8em;
+  color: #eceab7;
+  background-color: #957275;
+}
+
+.body__btn:hover {
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 0.8em;
+  color: #957275;
+  background-color: #eceab7;
 }
