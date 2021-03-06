@@ -1,11 +1,11 @@
-/ <h1></h1> → h1、<p></p> → |、<%= %> → =
+/ <h1></h1> → h1、<p></p> → p、<%= %> → =、|(パイプ)より後ろはテキストとして認識してくれる
 - provide(:title, "Top")
-.content__app-description
-  h1 Pantry 
-  | 日々の食品管理をお手伝いします。
-  br
-  = link_to "ログイン", "#", class: "btn body__btn"
-  br
-  | または
-  br
-  = link_to "ユーザー登録", "#", class: "btn body__btn"
+table
+  .content__app-description
+    h1 Pantry 
+    p
+      | 日々の食品管理をお手伝いします。
+    = link_to "ログイン", "#", class: "btn main__btn"
+    p
+      | または
+    = link_to "ユーザー登録", "#", class: "btn main__btn"
