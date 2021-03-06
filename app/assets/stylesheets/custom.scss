@@ -6,6 +6,7 @@
 body {
   padding-top: 60px;
   background-color: #491a00;
+  // position: relative;
 }
 
 section {
@@ -21,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
@@ -35,8 +36,9 @@ h2 {
 }
 
 p {
-  font-size: 1.5em;
-  line-height: 1.7em;
+  font-size: 1em;
+  margin-top: 0.5em;
+  // line-height: 2.5em;
 }
 
 /* header */
@@ -74,17 +76,28 @@ p {
   padding-bottom: 30px;
 }
 
-/* body */
-.body__btn {
+/* main */
+.main__btn {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 0.8em;
   color: #eceab7;
   background-color: #957275;
 }
 
-.body__btn:hover {
+.main__btn:hover {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 0.8em;
   color: #957275;
   background-color: #eceab7;
+}
+
+/* debug */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
