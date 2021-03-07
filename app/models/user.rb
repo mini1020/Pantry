@@ -6,6 +6,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[line]
+  
+  validates :name, presence: true, null: false,
+                   length: { maximum: 20 }
+  # 更新時、パスワードが入力されていなかった場合はは検証をスルーする
 
   def social_profile(provider)
     #条件に一致する値のみを抽出する。.to_sは文字列以外→文字列
