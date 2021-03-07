@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_220308) do
+ActiveRecord::Schema.define(version: 2021_03_07_033101) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "quantity"
+    t.integer "quantity", null: false
     t.date "purchase", null: false
     t.date "expiration"
     t.date "notice"
     t.integer "storage_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_foods_on_name"
     t.index ["storage_id"], name: "index_foods_on_storage_id"
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_220308) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["place"], name: "index_storages_on_place", unique: true
     t.index ["user_id"], name: "index_storages_on_user_id"
   end
 
@@ -42,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_220308) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "provider"
     t.string "uid"
-    t.string "name"
+    t.string "name", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
