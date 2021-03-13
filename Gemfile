@@ -31,7 +31,7 @@ gem "html2slim"
 #ターミナル出力整形
 gem "awesome_print"
 #ビュー整形
-gem "bootstrap-sass"
+gem "bootstrap", "~> 4.1.1"
 gem "jquery-rails"
 
 
