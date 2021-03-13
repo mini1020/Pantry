@@ -1,8 +1,11 @@
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 40px;
-  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
-  text-align: center;
+  // margin-bottom: 40px;
+}
+
+.label--fontstyle {
+  font-size: 1.4em;
   color: #eceab7;
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
 }

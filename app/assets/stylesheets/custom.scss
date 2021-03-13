@@ -2,6 +2,7 @@
 
 /* 全体 */
 
+
 body {
   padding-top: 60px;
   background-color: #491a00;
@@ -21,8 +22,11 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: center;
+  font-weight: normal;
+  color: #eceab7;
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
 }
 
 h2 {
@@ -32,12 +36,14 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: #777;
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
 }
 
 p {
   font-size: 1em;
   margin-top: 0.5em;
   // line-height: 2.5em;
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
 }
 
 /* header */
