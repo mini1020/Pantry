@@ -5,7 +5,15 @@ h1 {
 }
 
 .label--fontstyle {
-  font-size: 1.4em;
-  color: #eceab7;
-  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
+  font-size: 1.3em;
+  margin-top: 6px;
+}
+
+.btn__signup {
+  text-align: center;
+}
+
+.btn__signup .main__btn {
+  margin: 20px 5px;
+  padding: 8px 90px;
 }

@@ -1,38 +1,28 @@
-.contents
-  table.table.table-borderless.form__signin
-    tbody
-      tr
-        th
-          h1 ユーザー登録
-        th
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        tr
-          td.label--fontstyle
-            = f.label :name
-          td
-            = f.text_field :name, class: "form-control"
-        tr
-          td.label--fontstyle
-            = f.label :email
-          td
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
-        tr
-          td.label--fontstyle
-            = f.label :password
-            - if @minimum_password_length
-              em
-                | (
-                = @minimum_password_length
-                |  characters minimum)
-          td
-            = f.password_field :password, autocomplete: "new-password", class: "form-control"
-        tr
-          td.label--fontstyle
-            = f.label :password_confirmation
-          td
-            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
-        tr
-          td.actions
-            = link_to "キャンセル", "#", class: "btn"
-            = f.submit "登録する"
+h1 ユーザー登録
+
+.row
+  .col-md-6.offset-md-3
+    = form_with model: @user, url: user_registration_path, id: "new_user", class: "new_user", local: true do |f|
+      = render "devise/shared/error_messages", resource: resource
+      
+      = f.label :name, class: "label--fontstyle"
+      = f.text_field :name, autofocus: true, class: "form-control"
+      
+      = f.label :email, class: "label--fontstyle"
+      = f.email_field :email, class: "form-control"
+      
+      = f.label :password, class: "label--fontstyle"
+      - if @minimum_password_length
+        em
+          | (
+          = @minimum_password_length
+          |  characters minimum)
+      = f.password_field :password, class: "form-control"
+      
+      = f.label :password_confirmation, class: "label--fontstyle"
+      = f.password_field :password_confirmation, class: "form-control"
+
+      .btn__signup
+        = link_to "Topへ戻る", root_path, class: "btn main__btn"
+        = f.submit "登録する", class: "btn main__btn"
+              
