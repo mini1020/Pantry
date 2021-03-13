@@ -1,4 +1,3 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* 全体 */
@@ -93,6 +92,7 @@ p {
 
 /* debug */
 .debug_dump {
+  background-color: #fff;
   clear: both;
   float: left;
   width: 100%;
