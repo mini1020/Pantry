@@ -1,0 +1,19 @@
+- provide(:title, "User intomation")
+h1 ユーザー情報
+
+.row
+  .col-md-6.offset-md-3
+    table.table.table-bordered
+      tr
+        td
+          | 名前
+        td
+          名前
+      
+      tr
+        td
+          | メールアドレス
+        td
+          メールアドレス
+    = link_to "編集する", "#"
+    = link_to "アカウントを削除する", "#"
