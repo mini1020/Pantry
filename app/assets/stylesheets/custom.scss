@@ -106,6 +106,14 @@ ul {
   list-style: none;
 }
 
+/* エラーメッセージ */
+// .field_with_errors {
+//   @extend .has-error;
+//   .form-control {
+//     color: $state-danger-text;
+//   }
+// }
+
 /* debug */
 .debug_dump {
   background-color: #fff;

@@ -5,14 +5,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    @user = User.new
+  end
 
   # POST /resource
-  # def create
-  #   super
+  def create
+    @user = User.new(user_signup_params)
+    if @user.save
+      flash[:success] = "ユーザー登録に成功しました。"
+      redirect_to @user
+    else
+      render :new
+    end
+  end
+
+  # DELETE /resource
+  def destroy
+  end
+
+  protected
+  # 登録後の遷移先を指定
+  # def after_sign_up_path_for(resource)
+  #   user_path(@user)
   # end
+  
+  private
+    def user_signup_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 
   # GET /resource/edit
   # def edit
@@ -21,11 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
   #   super
   # end
 
@@ -48,11 +64,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
   # end
 
   # The path used after sign up for inactive accounts.
