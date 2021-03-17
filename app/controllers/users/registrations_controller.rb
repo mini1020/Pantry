@@ -6,18 +6,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @user = User.new
+    super
+    # @user = User.new
   end
 
   # POST /resource
   def create
-    @user = User.new(user_signup_params)
-    if @user.save
-      flash[:success] = "ユーザー登録に成功しました。"
-      redirect_to @user
-    else
-      render :new
-    end
+    super
+    # ↓自作
+    # @user = User.new(user_signup_params)
+    # if @user.save
+    #   flash[:success] = "ユーザー登録に成功しました。"
+    #   redirect_to @user
+    # else
+    #   render :new
+    # end
   end
 
   # DELETE /resource
@@ -26,14 +29,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   # 登録後の遷移先を指定
-  # def after_sign_up_path_for(resource)
-  #   user_path(@user)
-  # end
+  def after_sign_up_path_for(resource)
+    user_path(@user)
+  end
   
   private
-    def user_signup_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+    # ↓自作
+    # def user_signup_params
+    #   params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    # end
 
   # GET /resource/edit
   # def edit
