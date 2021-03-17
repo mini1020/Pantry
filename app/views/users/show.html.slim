@@ -1,0 +1,22 @@
+- provide(:title, "User info")
+
+h1 ユーザー情報
+.row
+  .col-md-6.offset-md-3
+    table.table.table-bordered
+      tr
+        td
+          | 名前
+        td
+          = @user.name
+      
+      tr
+        td
+          | メールアドレス
+        td
+          = @user.email
+          
+    .btn__user-infomation
+      = link_to "編集する", "edit_user_registration_path", class: "btn main__btn"
+    .btn__user-infomation
+      = link_to "アカウントを削除する", "#", class: "btn main__btn"

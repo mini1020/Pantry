@@ -1,3 +1,8 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.btn__user-infomation {
+  text-align: center;
+}
+
+.btn__user-infomation .main__btn {
+  margin: 5px;
+  padding: 8px 50px;
+}

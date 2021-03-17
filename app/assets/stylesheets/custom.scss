@@ -1,12 +1,25 @@
-@import "bootstrap-sprockets";
 @import "bootstrap";
 
 /* 全体 */
-
 body {
   padding-top: 60px;
   background-color: #491a00;
+  color: #eceab7;
+  font-size: 1.5em;
+  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   // position: relative;
+  background-image: url("下枠.png");
+  background-size: 70% 25%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: bottom;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 section {
@@ -20,19 +33,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   letter-spacing: -2px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   text-align: center;
+  font-weight: normal;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #777;
 }
 
 p {
@@ -46,7 +59,7 @@ p {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   float: left;
   margin-right: 10px;
-  font-size: 4em;
+  font-size: 3em;
   color: #eceab7;
   letter-spacing: -1px;
   padding-top: 2px;
@@ -60,7 +73,7 @@ p {
 
 .navbar-nav > li > a.nav__btn {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
   color: #eceab7;
   background-color: #957275;
   padding-top: 30px;
@@ -69,7 +82,7 @@ p {
 
 .navbar-nav > li > a.nav__btn:hover {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
   color: #957275;
   background-color: #eceab7;
   padding-top: 30px;
@@ -78,21 +91,32 @@ p {
 
 /* main */
 .main__btn {
-  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 0.8em;
   color: #eceab7;
   background-color: #957275;
 }
 
 .main__btn:hover {
-  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 0.8em;
   color: #957275;
   background-color: #eceab7;
 }
 
+ul {
+  list-style: none;
+}
+
+/* エラーメッセージ */
+// .field_with_errors {
+//   @extend .has-error;
+//   .form-control {
+//     color: $state-danger-text;
+//   }
+// }
+
 /* debug */
 .debug_dump {
+  background-color: #fff;
   clear: both;
   float: left;
   width: 100%;

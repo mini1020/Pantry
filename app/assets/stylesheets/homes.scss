@@ -1,19 +1,7 @@
-.content__app-description {
-  font-size: 1.8em;
+.app-description {
   text-align: center;
-  color: #eceab7;
-  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
-  margin: 200px;
-  // position: absolute;
-  // top: 40%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
 }
 
-body {
-  background-image: url("下枠.png");
-  background-size: 70% 25%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: bottom;
+h1#title {
+  font-size: 2.8em;
 }
