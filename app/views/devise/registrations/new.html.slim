@@ -14,10 +14,9 @@ h1 ユーザー登録
       
       = f.label :password, class: "label--fontstyle"
       - if @minimum_password_length
-        em
-          | (
-          = @minimum_password_length
-          |  characters minimum)
+        | (
+        = @minimum_password_length
+        |  文字以上)
       = f.password_field :password, class: "form-control"
       
       = f.label :password_confirmation, class: "label--fontstyle"
