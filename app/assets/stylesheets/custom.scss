@@ -55,38 +55,42 @@ p {
 }
 
 /* header */
+.navbar > .navbar--height {
+  position: absolute;
+  top: -80%;
+}
+
 #logo {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
-  float: left;
   margin-right: 10px;
   font-size: 3em;
   color: #eceab7;
   letter-spacing: -1px;
-  padding-top: 2px;
   font-weight: bold;
-}
-
-#logo:hover {
-  color: #eceab7;
   text-decoration: none;
+  display: inline-block;
 }
 
-.navbar-nav > li > a.nav__btn {
+.navbar-nav ul li a.nav__btn {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 1em;
+  text-align: center;
+  text-decoration: none;
   color: #eceab7;
   background-color: #957275;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  border-radius: 5px;
+  padding: 30px 15px;
+  margin-top: 30px;
+  display: inline-block
 }
 
-.navbar-nav > li > a.nav__btn:hover {
-  font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
-  font-size: 1em;
+.navbar-nav ul li a.nav__btn:hover {
   color: #957275;
   background-color: #eceab7;
-  padding-top: 30px;
-  padding-bottom: 30px;
+}
+
+.navbar-nav ul li {
+  float: left;
 }
 
 /* main */

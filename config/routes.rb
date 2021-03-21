@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-
   root "homes#top"
   devise_for :users, controllers: {
-    # ↓registrations_controller.rbで記述する内容を有効にするために必要！
+    # ↓devise/registrationsをusers/registrationsに
     registrations: "users/registrations",
+    sessions: "users/sessions",
     omniauth_callbacks: "omniauth_callbacks"
   }
   
