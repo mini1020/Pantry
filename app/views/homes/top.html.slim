@@ -5,7 +5,13 @@ h1#title Pantry
   .col-md-6.offset-md-3.app-description
     p
       | 日々の食品管理をお手伝いします。
-    = link_to "ログイン", "#", class: "btn main__btn"
+    - if user_signed_in?
+      = link_to "ログイン", new_user_session_path, class: "btn main__btn disabled"
+    - else
+      = link_to "ログイン", new_user_session_path, class: "btn main__btn"
     p
       | または
-    = link_to "ユーザー登録", "#", class: "btn main__btn"
+    - if user_signed_in?
+      = link_to "ユーザー登録", new_user_registration_path, class: "btn main__btn disabled"
+    - else
+      = link_to "ユーザー登録", new_user_registration_path, class: "btn main__btn"

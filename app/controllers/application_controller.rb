@@ -5,6 +5,12 @@ class ApplicationController < ActionController::Base
     # 追加したカラムを許可
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
       devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    end
+
+    private
+    def set_user
+      @user = User.find(params[:id])
     end
 end
