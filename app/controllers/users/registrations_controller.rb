@@ -13,18 +13,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    # ↓自作
-    # @user = User.new(user_signup_params)
-    # if @user.save
-    #   flash[:success] = "ユーザー登録に成功しました。"
-    #   redirect_to @user
-    # else
-    #   render :new
-    # end
   end
 
   # DELETE /resource
   def destroy
+    super
   end
 
   protected
@@ -32,12 +25,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     user_path(@user)
   end
-  
-  private
-    # ↓自作
-    # def user_signup_params
-    #   params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    # end
+
+  #更新時はパスワードのバリデーションをスルーする
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   # GET /resource/edit
   # def edit
