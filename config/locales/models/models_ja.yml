@@ -13,11 +13,11 @@ ja:
           remember_created_at:
           provider: プロバイダー
           uid: ユーザーID
-          name: 名前
+          uname: 名前
         storage:
           place: 場所
         food:
-          name: 名称
+          fname: 名称
           quantity: 数量
           purchase: 購入日
           expiration: 使い切り目安
