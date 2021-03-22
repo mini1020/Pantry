@@ -94,6 +94,7 @@ p {
 }
 
 /* main */
+// メイン部分のボタン
 .main__btn {
   font-size: 0.8em;
   color: #eceab7;
@@ -109,6 +110,19 @@ p {
 ul {
   list-style: none;
 }
+
+// 入力フォームのラベル
+.label--fontstyle {
+  font-size: 0.8em;
+  margin-top: 6px;
+  vertical-align: middle;
+}
+
+// deviseモジュールに対応するリンク
+.devise-links {
+  text-align: center;
+}
+
 
 /* エラーメッセージ */
 // .field_with_errors {

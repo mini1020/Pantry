@@ -3,19 +3,22 @@
 h1 ログイン
 .row
   .col-md-6.offset-md-3
-    = form_with(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .field
-        = f.label :email
-        br
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password
-        br
-        = f.password_field :password, autocomplete: "current-password"
-      - if devise_mapping.rememberable?
-        .field
-          = f.check_box :remember_me
-          = f.label :remember_me
-      .actions
-        = f.submit "Log in"
-    = render "devise/shared/links"
+    = form_with(model: @user, url: user_session_path, local: true) do |f|
+      = render "devise/shared/error_messages", resource: resource
+
+      = f.label :email, class: "label--fontstyle"
+      = f.email_field :email, class: "form-control"
+      
+      = f.label :password, class: "label--fontstyle"
+      = f.password_field :password, class: "form-control"
+
+      .keep-signin
+        - if devise_mapping.rememberable?
+          = f.check_box :remember_me, class: "checkbox__remember"
+          = f.label :remember_me, class: "label--fontstyle"
+      .btn__signin
+        = f.submit "ログイン", class: "btn main__btn"
+      .horizon__signin
+        hr
+    .devise-links
+      = render "devise/shared/links"
