@@ -6,8 +6,8 @@ h1 ユーザー登録
     = form_with model: @user, url: user_registration_path, id: "new_user", class: "new_user", local: true do |f|
       = render "devise/shared/error_messages", resource: resource
       
-      = f.label :name, class: "label--fontstyle"
-      = f.text_field :name, autofocus: true, class: "form-control"
+      = f.label :uname, class: "label--fontstyle"
+      = f.text_field :uname, autofocus: true, class: "form-control"
       
       = f.label :email, class: "label--fontstyle"
       = f.email_field :email, class: "form-control"

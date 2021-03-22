@@ -1,7 +1,7 @@
 class Food < ApplicationRecord
   belongs_to :storage
 
-  validates :name, presence: true, null: false,
+  validates :fname, presence: true, null: false,
                    length: { maximum: 40 }
   validates :quantity, presence: true, null: false,
                        numericality: { greater_than: 1, less_than: 30 }

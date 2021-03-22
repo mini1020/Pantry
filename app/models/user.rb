@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[line]
   
-  validates :name, presence: true, null: false,
+  validates :uname, presence: true, null: false,
                    length: { maximum: 20 }
   # 更新時、パスワードが入力されていなかった場合はは検証をスルーする
 
