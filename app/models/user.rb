@@ -2,13 +2,14 @@ class User < ApplicationRecord
   has_many :storages, dependent: :destroy
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  # :confirmable, :lockable, :timeoutable, :trackable
+  devise :database_authenticatable, # DBに保存されたパスワードを使ってユーザーを認証する機能
+         :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[line]
   
   validates :uname, presence: true, null: false,
-                   length: { maximum: 20 }
+                    length: { maximum: 20 }
   # 更新時、パスワードが入力されていなかった場合はは検証をスルーする
 
   def social_profile(provider)
