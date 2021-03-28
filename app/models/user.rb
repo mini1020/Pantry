@@ -4,8 +4,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, # DBに保存されたパスワードを使ってユーザーを認証する機能
-         :registerable,
-         :recoverable, :rememberable, :validatable,
+         :registerable, :recoverable, :rememberable, 
+         :validatable, #emailとpasswordに対してバリデーションの設定を行う
          :omniauthable, omniauth_providers: %i[line]
   
   validates :uname, presence: true, null: false,

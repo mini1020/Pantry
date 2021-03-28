@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :after_sign_in_path_for 
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -19,10 +18,11 @@ class Users::SessionsController < Devise::SessionsController
     super
   end
 
-  # protected
-  # def after_sign_in_path_for(resource)
-  #   user_path(@user)
-  # end
+  protected
+    # ログイン後の遷移先を指定
+    def after_sign_in_path_for(resource)
+      user_path(current_user)
+    end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

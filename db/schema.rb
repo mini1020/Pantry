@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_033101) do
     t.integer "storage_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"name\"", name: "index_foods_on_name"
+    t.index ["fname"], name: "index_foods_on_fname"
     t.index ["storage_id"], name: "index_foods_on_storage_id"
   end
 
