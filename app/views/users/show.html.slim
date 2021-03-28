@@ -17,6 +17,6 @@ h1 ユーザー情報
           = @user.email
           
     .btn__user-infomation
-      = link_to "編集する", "edit_user_registration_path", class: "btn main__btn"
+      = link_to "編集する", edit_user_registration_path(current_user), class: "btn main__btn"
     .btn__user-infomation
       = link_to "アカウントを削除する", "#", class: "btn main__btn"

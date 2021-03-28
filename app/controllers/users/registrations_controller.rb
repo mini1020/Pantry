@@ -15,6 +15,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  # GET /resource/edit
+  def edit
+    super
+  end
+
+  # PUT /resource
+  def update
+    super
+  end
+
+
   # DELETE /resource
   def destroy
     super
@@ -26,20 +37,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_path(@user)
   end
 
+  # 更新後の遷移先を指定
+  def after_update_path_for(resource)
+    user_path(@user)
+  end
+
   #更新時はパスワードのバリデーションをスルーする
   def update_resource(resource, params)
     resource.update_without_password(params)
   end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

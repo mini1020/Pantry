@@ -3,26 +3,5 @@
 h1 ユーザー登録
 .row
   .col-md-6.offset-md-3
-    = form_with model: @user, url: user_registration_path, local: true do |f|
-      = render "devise/shared/error_messages", resource: resource
-      
-      = f.label :uname, class: "label--fontstyle"
-      = f.text_field :uname, autofocus: true, class: "form-control"
-      
-      = f.label :email, class: "label--fontstyle"
-      = f.email_field :email, class: "form-control"
-      
-      = f.label :password, class: "label--fontstyle"
-      - if @minimum_password_length
-        | (
-        = @minimum_password_length
-        |  文字以上)
-      = f.password_field :password, class: "form-control"
-      
-      = f.label :password_confirmation, class: "label--fontstyle"
-      = f.password_field :password_confirmation, class: "form-control"
-
-      .btn__signup
-        = link_to "Topへ戻る", root_path, class: "btn main__btn"
-        = f.submit "登録する", class: "btn main__btn"
+    = render "form"
               
