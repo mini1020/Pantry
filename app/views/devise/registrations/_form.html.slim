@@ -1,6 +1,3 @@
-= form_with model: @user, url: user_registration_path, local: true do |f|
-  = render "devise/shared/error_messages", resource: resource
-  
   = f.label :uname, class: "label--fontstyle"
   = f.text_field :uname, autofocus: true, class: "form-control"
   
