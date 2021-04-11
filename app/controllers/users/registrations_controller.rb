@@ -70,9 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     # 更新後の遷移先を指定
     def after_update_path_for(resource)
-      # by_admin_user?(params) ? user_path(current_user) : user_path
-      user_path
-      end
+      user_path(current_user)
     end
 
     #更新時はパスワードのバリデーションをスルーする

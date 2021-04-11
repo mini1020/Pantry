@@ -1,6 +1,10 @@
+Admin.create!(
+  email: "admin@email.com",
+  password: "password")
+
 User.create!(
-  uname: "admin",
-  email: "sampleA@email.com",
-  password: "password",
-  admin: true)
+  uname: "User1",
+  email: "sample1@email.com",
+  password: "password"
+)
   

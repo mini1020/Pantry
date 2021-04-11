@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   root "homes#top"
 
   devise_for :admins, controllers: {
+    registrations: "users/registrations",  
     sessions: "admins/sessions"
-  }
+    }
+    # resources :users, only: [:show]
   
-  # ↓/users/sign_inがUserモデルの認証画面のURL
   devise_for :users, controllers: {
-    # ↓devise/registrationsをusers/registrationsに
     registrations: "users/registrations",
     sessions: "users/sessions",
     omniauth_callbacks: "omniauth_callbacks"
@@ -18,11 +18,9 @@ Rails.application.routes.draw do
       end
     end
 
-  devise_scope :user do
-    get "users/:id/edit", to: "users/registrations#edit", as: :edit_other_user_registration
-    match "users/:id", to: "users/registrations#update", via: [:patch, :put], as: :other_user_registration
-  end
-  
-  
+  # devise_scope :user do
+  #   get "users/:id/edit", to: "users/registrations#edit", as: :edit_other_user_registration
+  #   match "users/:id", to: "users/registrations#update", via: [:patch, :put], as: :other_user_registration
+  # end
   
 end

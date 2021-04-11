@@ -4,10 +4,12 @@ header.navbar.navbar-light style="background-color: #491a00"
     nav.navbar-nav
       ul
         - if admin_signed_in?
+          li 管理者
           li = link_to "ユーザー一覧","#", class: "nav__btn"
           li = link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "nav__btn"  
 
         - elsif user_signed_in?
+          li = current_user.name
           li = link_to "食品一覧", "#", class: "nav__btn"
           li = link_to "保管場所一覧", "#", class: "nav__btn"
           li = link_to  "ユーザー情報", user_path(current_user), class: "nav__btn"
