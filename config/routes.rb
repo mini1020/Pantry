@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     registrations: "users/registrations",  
     sessions: "admins/sessions"
-    }
-    # resources :users, only: [:show]
-  
+  }
+    namespace :admins do
+      resources :users, only: [:index, :edit, :update, :destroy]
+    end
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     sessions: "users/sessions",
