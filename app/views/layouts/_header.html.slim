@@ -9,7 +9,7 @@ header.navbar.navbar-light style="background-color: #491a00"
           li = link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "nav__btn"  
 
         - elsif user_signed_in?
-          li = current_user.name
+          li = current_user.uname
           li = link_to "食品一覧", "#", class: "nav__btn"
           li = link_to "保管場所一覧", "#", class: "nav__btn"
           li = link_to  "ユーザー情報", user_path(current_user), class: "nav__btn"
