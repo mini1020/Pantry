@@ -5,12 +5,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, # DBに保存されたパスワードを使ってユーザーを認証する機能
          :registerable, :recoverable, :rememberable, 
-         :validatable, #emailとpasswordに対してバリデーションの設定を行う
+        #  :validatable, #emailとpasswordに対してバリデーションの設定を行う
          :omniauthable, omniauth_providers: %i[line]
   
   validates :uname, presence: true, null: false,
                     length: { maximum: 20 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, null: false,
+                    length: { maximum: 80 }, uniqueness: true
+                    format: { with: VALID_EMAIL_REGEX }
   # 更新時、パスワードが入力されていなかった場合はは検証をスルーする
+  validates :password, presence: true, length: { minimum: 8 }, 
+            allow_nil: true, null: false
 
   def social_profile(provider)
     #条件に一致する値のみを抽出する。.to_sは文字列以外→文字列
