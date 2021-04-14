@@ -6,8 +6,9 @@ before_action :set_user
   end
 
   def update
-    if @user.update(user_params)
-      flash[:success] = "ユーザー情報を更新しました。"
+    resource_updated = update_resource(@user, user_params)
+    if resource_updated
+      flash[:success] = "#{@user.uname}の情報を更新しました。"
       redirect_to root_url
     else
       render :edit
@@ -17,5 +18,10 @@ before_action :set_user
   private
     def user_params
       params.require(:user).permit(:uname, :email, :password, :password_confirmation)
+    end
+
+  protected
+    def update_resource(user, params)
+      user.update_without_password(params)
     end
 end
