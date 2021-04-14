@@ -9,9 +9,9 @@ Rails.application.routes.draw do
     end
 
   devise_for :users, controllers: {
-    registrations: "devise/registrations",
-    sessions: "devise/sessions",
-    omniauth_callbacks: "devise/omniauth_callbacks"
+    registrations: "users/registrations",
+    sessions: "users/sessions",
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
     resources :users, only: [:show] # do
     #   resources :storages do
