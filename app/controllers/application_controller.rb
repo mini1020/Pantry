@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
       @user = User.find(params[:id])
     end
 
-    # def admin_or_correct_user
-    #   @user = User.find(params[:id])
-    #   unless current_user.admin?
-    #     unless @user == current_user
-    #       flash[:danger] = "アクセス権限がありません。"
-    #       redirect_to root_url 
-    #     end
-    #   end
-    # end
+    def admin_or_correct_user
+      unless current_admin
+        @user = User.find(params[:id])
+        unless @user == current_user
+          flash[:danger] = "アクセス権限がありません。"
+          redirect_to root_url 
+        end
+      end
+    end
 end

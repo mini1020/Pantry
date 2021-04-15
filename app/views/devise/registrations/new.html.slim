@@ -3,5 +3,7 @@
 h1 ユーザー登録
 .row
   .col-md-6.offset-md-3
-    = render "form"
+    = form_with model: resource, url: user_registration_path, local: true do |f|
+        = render "devise/shared/error_messages", resource: resource
+        = render "form", f: f
               
