@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  resources :users, only: [:show] # do
-  #   resources :storages do
-  #     resources :foods
-  #   end
-  # end
+  resources :users, only: [:show] do
+    resources :storages do
+      resources :foods
+    end
+  end
 end
