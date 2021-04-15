@@ -37,6 +37,8 @@ gem "jquery-rails"
 gem "rails-i18n"
 gem "devise-i18n"
 gem "devise-i18n-views"
+#認可
+# gem "cancancan"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

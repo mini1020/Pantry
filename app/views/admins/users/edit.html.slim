@@ -1,0 +1,8 @@
+- provide(:title, "User_info edit")
+
+h1 ユーザー情報編集
+.row
+  .col-md-6.offset-md-3
+    = form_with model: @user, url: admins_user_path(@user), local: true do |f|
+        = render "devise/shared/error_messages", resource: @user
+        = render "devise/registrations/form", f: f

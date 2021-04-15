@@ -3,10 +3,16 @@ header.navbar.navbar-light style="background-color: #491a00"
     = link_to "Pantry", root_path, id: "logo"
     nav.navbar-nav
       ul
-        - if user_signed_in?
+        - if admin_signed_in?
+          li 管理者
+          li = link_to "ユーザー一覧","#", class: "nav__btn"
+          li = link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "nav__btn"  
+
+        - elsif user_signed_in?
+          li = current_user.uname
           li = link_to "食品一覧", "#", class: "nav__btn"
           li = link_to "保管場所一覧", "#", class: "nav__btn"
-          li = link_to  "ユーザー情報", current_user, class: "nav__btn"
+          li = link_to  "ユーザー情報", user_path(current_user), class: "nav__btn"
           li = link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "nav__btn"  
         - else
           li = link_to "ログイン", new_user_session_path, class: "nav__btn"
