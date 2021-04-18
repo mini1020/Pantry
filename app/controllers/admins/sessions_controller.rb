@@ -18,7 +18,11 @@ class Admins::SessionsController < Devise::SessionsController
     super
   end
 
-  # protected
+  protected
+    # ログイン後の遷移先を指定
+    def after_sign_in_path_for(resource)
+      stored_location_for(resource) || root_path
+    end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
