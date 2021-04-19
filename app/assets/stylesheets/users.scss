@@ -6,3 +6,18 @@
   margin: 5px;
   padding: 8px 50px;
 }
+
+// テーブルの枠線を消す
+tbody > tr > .noborder {
+  border: 0px none;
+}
+
+// ユーザー一覧表示テーブル
+.text--center {
+  text-align: center;
+}
+
+.btn--margin {
+  margin-left: 10px;
+  margin-right: 10px;
+}
