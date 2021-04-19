@@ -7,9 +7,11 @@ Admin.create!(
 #   admin.password: "password"
 # end
 
-User.create!(
-  uname: "User1",
-  email: "sample1@email.com",
-  password: "password"
-)
+4.times do |n|
+  User.create!(
+    uname: "User#{n + 1}",
+    email: "sample#{n + 1}@email.com",
+    password: "password"
+  )
+end
   

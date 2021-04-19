@@ -1,0 +1,21 @@
+- provide(:title, "All user")
+
+h1 ユーザー一覧
+.row
+  .col-md-10.offset-md-1
+    table.table.table-condensed.table-hover
+      thead
+        tr
+          th = User.human_attribute_name :uname
+          th = User.human_attribute_name :email
+          th
+          th
+        
+      - @users.each do |user|
+        tr
+          td = user.uname
+          td = user.email
+          td = link_to "編集", edit_admins_user_path(user), class: "btn btn-success"
+          td = link_to "削除", admins_user_path(user), method: :delete,
+               data: { confirm: "削除してよろしいですか？" },
+               class: "btn btn-danger"
