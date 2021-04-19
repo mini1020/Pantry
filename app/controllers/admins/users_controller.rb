@@ -1,9 +1,10 @@
 # 管理者
 class Admins::UsersController < ApplicationController
-before_action :set_user
+before_action :set_user, only: [:edit, :update]
 before_action :authenticate_admin!
 
   def index
+    @users = User.all
   end
 
   def edit
@@ -13,7 +14,7 @@ before_action :authenticate_admin!
     resource_updated = update_resource(@user, user_params)
     if resource_updated
       flash[:success] = "#{@user.uname}の情報を更新しました。"
-      redirect_to root_url
+      redirect_to admins_users_url
     else
       render :edit
     end

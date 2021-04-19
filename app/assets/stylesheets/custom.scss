@@ -107,6 +107,31 @@ p {
   background-color: #eceab7;
 }
 
+//編集、削除ボタン
+.btn--edit {
+  font-size: 0.8em;
+  color: #eceab7;
+  background-color: #485538;
+}
+
+.btn--edit:hover{
+  font-size: 0.8em;
+  color: #485538;
+  background-color: #eceab7;
+}
+
+.btn--destroy {
+  font-size: 0.8em;
+  color: #eceab7;
+  background-color: #a43121;
+}
+
+.btn--destroy:hover {
+  font-size: 0.8em;
+  color: #a43121;
+  background-color: #eceab7;
+}
+
 ul {
   list-style: none;
 }
