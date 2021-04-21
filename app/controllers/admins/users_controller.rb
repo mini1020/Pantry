@@ -1,6 +1,6 @@
 # 管理者
 class Admins::UsersController < ApplicationController
-before_action :set_user, only: [:edit, :update]
+before_action :set_user, only: [:edit, :update, :destroy]
 before_action :authenticate_admin!
 
   def index
@@ -18,6 +18,12 @@ before_action :authenticate_admin!
     else
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy
+    flash[:success] = "#{@user.uname}の情報を削除しました。"
+    redirect_to admins_users_url
   end
 
   private
