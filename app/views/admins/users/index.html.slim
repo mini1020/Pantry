@@ -3,6 +3,7 @@
 h1 ユーザー一覧
 .row
   .col-md-10.offset-md-1
+    / = paginate(@users)
     table.table.text--center
       tr
         th.noborder = User.human_attribute_name :uname
@@ -18,3 +19,4 @@ h1 ユーザー一覧
              = link_to "削除", admins_user_path(user), method: :delete,
                data: { confirm: "削除してよろしいですか？" },
                class: "btn btn--destroy btn--margin"
+    = paginate(@users)
