@@ -148,6 +148,28 @@ ul {
   text-align: center;
 }
 
+// ページネーション
+.pagination {
+  justify-content: center;
+}
+
+.pagination > li > a {
+  border: none;
+  color: #957275;
+  background-color: #fff8dc;
+}
+
+.pagination > li > a:hover {
+  border: none;
+  color: #fff8dc;
+  background-color: #957275;
+}
+
+.pagination > .active > a.page--activecolor {
+  border: none;
+  color: #fff8dc;
+  background-color: #954e2a;
+}
 
 /* エラーメッセージ */
 // .field_with_errors {

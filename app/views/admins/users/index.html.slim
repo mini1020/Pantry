@@ -3,6 +3,7 @@
 h1 ユーザー一覧
 .row
   .col-md-10.offset-md-1
+    / = paginate(@users)
     table.table.text--center
       tr
         th.noborder = User.human_attribute_name :uname
