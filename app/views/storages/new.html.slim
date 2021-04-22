@@ -1,2 +1,8 @@
-h1 Storages#new
-p Find me in app/views/storages/new.html.slim
+- provide(:title, "Storage registration")
+
+h1 保管場所登録
+.row
+  .col-md-6.offset-md-3
+    = form_with model: @storage, url: user_storages_path, local: true do |f|
+    = render "form", f: f
+
