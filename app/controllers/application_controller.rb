@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
 
   private
     def set_user
-      @user = User.find(params[:id])
+      @user = if params[:user_id].present?
+                User.find(params[:user_id])
+              else
+                User.find(params[:id])
+              end
     end
 
     def admin_or_correct_user
