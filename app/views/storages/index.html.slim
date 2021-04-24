@@ -1,0 +1,20 @@
+- provide(:title, "All storage")
+
+h1 保管場所一覧
+.row
+  .col-md-10.offset-md-1
+    / = paginate(@storages)
+    table.table.text--center
+      tr
+        th.noborder = Storage.human_attribute_name :place
+        th.noborder
+        
+      - @storages.each do |storage|
+        tr
+          td = storage.place
+          td
+             = link_to "編集", edit_user_storage_path(storage), class: "btn btn--edit btn--margin"
+             = link_to "削除", user_storage_path(storage), method: :delete,
+               data: { confirm: "削除してよろしいですか？" },
+               class: "btn btn--destroy btn--margin"
+    = paginate(@storages)
