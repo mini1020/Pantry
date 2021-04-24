@@ -22,9 +22,18 @@ class StoragesController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:user_id])
+    @storage = Storage.find(params[:id])
   end
 
   def update
+    @storage = Storage.find(params[:id])
+    if @storage.update(storage_params)
+      flash[:success] = "保管場所情報を更新しました。"
+      redirect_to user_storages_url
+    else
+      render :edit
+    end
   end
 
   private

@@ -1,0 +1,7 @@
+- provide(:title, "Storage edit")
+
+h1 保管場所編集
+.row
+  .col-md-6.offset-md-3
+    = form_with model: @storage, url: user_storage_path(@user), local: true do |f|
+      = render "form", f: f
