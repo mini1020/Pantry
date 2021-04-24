@@ -1,5 +1,9 @@
 class StoragesController < ApplicationController
 
+  def index
+    @storages = Storage.page(params[:page]).per(5)
+  end
+
   def new
     @user = User.find(params[:user_id])
     @storage = Storage.new
