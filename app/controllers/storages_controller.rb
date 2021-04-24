@@ -1,5 +1,6 @@
 class StoragesController < ApplicationController
   before_action :set_user
+  before_action :set_storage, only: [:edit, :update, :destroy]
 
   def index
     @storages = Storage.page(params[:page]).per(5)
@@ -20,11 +21,9 @@ class StoragesController < ApplicationController
   end
 
   def edit
-    @storage = Storage.find(params[:id])
   end
 
   def update
-    @storage = Storage.find(params[:id])
     if @storage.update(storage_params)
       flash[:success] = "保管場所情報を更新しました。"
       redirect_to user_storages_url
@@ -33,8 +32,18 @@ class StoragesController < ApplicationController
     end
   end
 
+  def destroy
+    @storage.destroy
+    flash[:success] = "#{@storage.place}の情報を削除しました。"
+    redirect_to user_storages_url
+  end
+
   private
     def storage_params
       params.require(:storage).permit(:place, :user_id)
+    end
+
+    def set_storage
+      @storage = Storage.find(params[:id])
     end
 end
