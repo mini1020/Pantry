@@ -15,10 +15,18 @@ class StoragesController < ApplicationController
     @storage = Storage.new(storage_params)
     if @storage.save
       flash[:success] = "保管場所を登録しました。"
-      redirect_to root_url # 後でリダイレクト先を一覧ページに変更
+      redirect_to user_storages_url
     else
       render :new
     end
+  end
+
+  def edit
+    
+  end
+
+  def update
+    
   end
 
   private
