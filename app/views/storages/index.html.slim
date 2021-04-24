@@ -2,8 +2,11 @@
 
 h1 保管場所一覧
 .row
-  .col-md-10.offset-md-1
+  .col-md-8.offset-md-2
     / = paginate(@storages)
+    .btn__storages--center
+      = link_to "保管場所を追加する", new_user_storage_path(@user), class: "btn main__btn"
+      
     table.table.text--center
       tr
         th.noborder = Storage.human_attribute_name :place
@@ -13,8 +16,8 @@ h1 保管場所一覧
         tr
           td = storage.place
           td
-             = link_to "編集", edit_user_storage_path(storage), class: "btn btn--edit btn--margin"
-             = link_to "削除", user_storage_path(storage), method: :delete,
+             = link_to "編集", edit_user_storage_path(@user, storage), class: "btn btn--edit btn--margin"
+             = link_to "削除", user_storage_path(@user, storage), method: :delete,
                data: { confirm: "削除してよろしいですか？" },
                class: "btn btn--destroy btn--margin"
     = paginate(@storages)
