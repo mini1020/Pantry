@@ -5,7 +5,7 @@ ja:
       storage: 保管場所
       food: 食品
     attributes:
-        user:
+        user: ユーザー
           email: メールアドレス 
           encrypted_password:
           reset_password_token:
@@ -14,9 +14,9 @@ ja:
           provider: プロバイダー
           uid: ユーザーID
           uname: 名前
-        storage:
+        storage: 保管場所
           place: 場所
-        food:
+        food: 食品
           fname: 名称
           quantity: 数量
           purchase: 購入日
