@@ -1,7 +1,20 @@
-  = f.label :place, class: "label--fontstyle"
-  = f.text_field :place, autofocus: true, class: "form-control"
+  = f.label :fname, class: "label--fontstyle"
+  = f.text_field :fname, autofocus: true, class: "form-control"
 
-  = f.hidden_field :user_id, value: current_user.id
+  = f.label :quantity, class: "label--fontstyle"
+  = f.text_field :quantity, class: "form-control"
+
+  = f.label :purchase, class: "label--fontstyle"
+  = f.text_field :purchase, class: "form-control"
+
+  = f.label :expiration, class: "label--fontstyle"
+  = f.text_field :expiration, class: "form-control"
+
+  = f.label :notice, class: "label--fontstyle"
+  = f.text_field :notice, class: "form-control"
+
+  = f.label :place, class: "label--fontstyle"
+  = f.text_field :place, class: "form-control"
 
   .btn__storages--center
     = link_to "キャンセル", "#", class: "btn main__btn"

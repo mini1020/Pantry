@@ -15,10 +15,11 @@ Rails.application.routes.draw do
   } 
 
   get "/users/:user_id/storages/foods", to: "foods#index", as: "user_storage_foods"
+  get "/users/:user_id/storages/foods/new", to: "foods#new", as: "new_user_storage_food"
 
   resources :users, only: [:show] do
     resources :storages, only: [:index, :new, :create, :edit, :update, :destroy] do
-      resources :foods, only: [:new, :create, :edit, :update, :destroy]
+      resources :foods, only: [:create, :edit, :update, :destroy]
     end
   end
 
