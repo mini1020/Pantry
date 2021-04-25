@@ -2,7 +2,7 @@
 
 h1 食品一覧
 .row
-  .col-md-8.offset-md-2
+  .col-md-10.offset-md-1
     / = paginate(@foods)
     .btn__storages--center
       = link_to "食品を追加する", "#", class: "btn main__btn"
@@ -16,16 +16,18 @@ h1 食品一覧
         th.noborder = Food.human_attribute_name :expiration
         th.noborder = Storage.human_attribute_name :place
         th.noborder
-        
-      - @foods.each do |food|
-        tr
-          td = food.fnamd
-          td = food.quantity
-          td = food.purchase 
-          td = food.expiration 
-          td
-             = link_to "編集", "#", class: "btn btn--edit btn--margin"
-             = link_to "削除", "#", method: :delete,
-               data: { confirm: "削除してよろしいですか？" },
-               class: "btn btn--destroy btn--margin"
+      
+      - @storages.each do |storage|
+        - storage.foods.each do |food|
+          tr
+            td = food.fname
+            td = food.quantity
+            td = food.purchase 
+            td = food.expiration 
+            td = storage.place
+            td
+              = link_to "編集", "#", class: "btn btn--edit btn--margin"
+              = link_to "削除", "#", method: :delete,
+                data: { confirm: "削除してよろしいですか？" },
+                class: "btn btn--destroy btn--margin"
     / = paginate(@foods)
