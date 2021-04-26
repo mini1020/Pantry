@@ -6,5 +6,23 @@ class FoodsController < ApplicationController
   end
 
   def new
+    @storages = Storage.all
+    @food = Food.new
   end
+
+  def create
+    @food = Food.new(food_params)
+    if @food.save
+      flash[:success] = "食品を登録しました。"
+      redirect_to user_storage_foods_url
+    else
+      render :new
+    end
+  end
+
+  private
+    def food_params
+      params.require(:food).permit(:fname, :quantity, :purchase, :expiration, :notice, :storage_id)
+    end
+
 end
