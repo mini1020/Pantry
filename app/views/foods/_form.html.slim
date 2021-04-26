@@ -5,16 +5,16 @@
   = f.text_field :quantity, class: "form-control"
 
   = f.label :purchase, class: "label--fontstyle"
-  = f.text_field :purchase, class: "form-control"
+  = f.date_field :purchase, class: "form-control"
 
   = f.label :expiration, class: "label--fontstyle"
-  = f.text_field :expiration, class: "form-control"
+  = f.date_field :expiration, class: "form-control"
 
   = f.label :notice, class: "label--fontstyle"
-  = f.text_field :notice, class: "form-control"
+  = f.date_field :notice, class: "form-control"
 
-  = f.label :place, class: "label--fontstyle"
-  = f.text_field :place, class: "form-control"
+  = f.label :storage_id, class: "label--fontstyle"
+  = f.collection_select(:storage_id, @storages, :id, :place, { include_blank: true }, { class: "form-control" })
 
   .btn__storages--center
     = link_to "キャンセル", "#", class: "btn main__btn"
