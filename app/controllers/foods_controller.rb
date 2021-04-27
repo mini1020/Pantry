@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   before_action :set_user
+  before_action :set_storage, only: [:edit, :update, :destroy]
   before_action :set_food, only: [:edit, :update, :destroy]
 
   def index

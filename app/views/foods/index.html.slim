@@ -26,7 +26,7 @@ h1 食品一覧
             td = food.expiration 
             td = storage.place
             td
-              = link_to "編集", edit_user_storage_food_path(storage.id, storage.user_id, food), class: "btn btn--edit btn--margin"
+              = link_to "編集", edit_user_storage_food_path(storage.user_id, storage.id, food), class: "btn btn--edit btn--margin"
               = link_to "削除", "#", method: :delete,
                 data: { confirm: "削除してよろしいですか？" },
                 class: "btn btn--destroy btn--margin"

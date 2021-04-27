@@ -17,6 +17,14 @@ class ApplicationController < ActionController::Base
               end
     end
 
+    def set_storage
+      @storage = if params[:storage_id].present?
+                Storage.find(params[:storage_id])
+              else
+                Storage.find(params[:id])
+              end
+    end
+
     def admin_or_correct_user
       unless current_admin
         @user = User.find(params[:id])
