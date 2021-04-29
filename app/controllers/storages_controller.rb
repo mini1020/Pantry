@@ -43,7 +43,4 @@ class StoragesController < ApplicationController
       params.require(:storage).permit(:place, :user_id)
     end
 
-    def set_storage
-      @storage = Storage.find(params[:id])
-    end
 end
