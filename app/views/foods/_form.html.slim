@@ -14,7 +14,7 @@
   = f.date_field :notice, class: "form-control"
 
   = f.label :storage_id, class: "label--fontstyle"
-  = f.collection_select(:storage_id, @storages, :id, :place, { include_blank: true }, { class: "form-control" })
+  = f.collection_select(:storage_id, Storage.all, :id, :place, { include_blank: true }, { class: "form-control" })
 
   .btn__storages--center
     = link_to "キャンセル", "#", class: "btn main__btn"

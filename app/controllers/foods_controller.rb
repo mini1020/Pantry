@@ -26,7 +26,13 @@ class FoodsController < ApplicationController
   end
 
   def update
-
+    if @food.update(food_params)
+      flash[:success] = "保管場所情報を更新しました。"
+      redirect_to user_storage_foods_url
+    else
+      debugger
+      render :edit
+    end
   end
 
   private

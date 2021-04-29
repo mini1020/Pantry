@@ -4,7 +4,7 @@ class Food < ApplicationRecord
   validates :fname, presence: true, null: false,
                    length: { maximum: 40 }
   validates :quantity, presence: true, null: false,
-                       numericality: { greater_than: 1, less_than: 30 }
+                       numericality: { greater_than_or_equal_to: 1, less_than: 30 }
   validates :purchase, presence: true, null: false
   validate :purchasedate_earlier_than_not_today_possible,
            :expirationdate_before_inputdate_is_not_possible,
