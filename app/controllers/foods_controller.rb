@@ -35,6 +35,12 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food.destroy
+    flash[:success] = "#{@food.fname}の情報を削除しました。"
+    redirect_to user_storage_foods_url
+  end
+
   private
     def food_params
       params.require(:food).permit(:fname, :quantity, :purchase, :expiration, :notice, :storage_id)

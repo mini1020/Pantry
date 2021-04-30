@@ -14,16 +14,15 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   } 
 
+  resources :users, only: [:show] do
+    resources :storages, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
+
   get "/users/:user_id/storages/foods/new", to: "foods#new", as: "new_user_storage_food"
   post "/users/:user_id/storages/foods", to: "foods#create", as: "user_storage_food"
   get "/users/:user_id/storages/foods", to: "foods#index", as: "user_storage_foods"
   get "/users/:user_id/storages/:storage_id/foods/:id/edit", to: "foods#edit", as: "edit_user_storage_food"
   patch "/users/:user_id/storages/:storage_id/foods/:id", to: "foods#update", as: "update_user_storage_food"
-
-  resources :users, only: [:show] do
-    resources :storages, only: [:index, :new, :create, :edit, :update, :destroy] do
-      resources :foods, only: [:destroy]
-    end
-  end
+  delete "/users/:user_id/storages/:storage_id/foods/:id/", to: "foods#destroy", as: "destroy_user_storage_food"
 
 end
