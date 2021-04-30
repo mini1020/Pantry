@@ -15,6 +15,6 @@
   = f.password_field :password_confirmation, class: "form-control"
 
   .btn__registration--center
-  - if user_signed_in?
-    = link_to "戻る", user_path(@user), class: "btn main__btn"
-  = f.submit "更新", class: "btn main__btn"
+    - if user_signed_in?
+      = link_to "戻る", user_path(@user), class: "btn main__btn"
+    = f.submit "更新", class: "btn main__btn"
