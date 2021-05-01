@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     sessions: "users/sessions",
     omniauth_callbacks: "users/omniauth_callbacks",
-    passwords: "users/passwords"
+    passwords: "users/passwords",
   } 
 
   resources :users, only: [:show] do
