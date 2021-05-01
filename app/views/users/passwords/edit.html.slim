@@ -4,23 +4,23 @@
 h1 パスワード再設定
 .row
   .col-md-10.offset-md-1
-    = form_with model: resource, url: password_path(resource_name),  do |f|
+    = form_with(model: resource, url: user_password_path(resource_name), method: :put ) do |f|
       = render "devise/shared/error_messages", resource: resource
       = f.hidden_field :reset_password_token
-      .field
-        = f.label :password, "新しいパスワード"
+
+      = f.label :password, "新しいパスワード"
+      - if @minimum_password_length
+        em
+          | (
+          = @minimum_password_length
+          |  characters minimum)
         br
-        - if @minimum_password_length
-          em
-            | (
-            = @minimum_password_length
-            |  characters minimum)
-          br
-        = f.password_field :password, autofocus: true, autocomplete: "new-password"
-      .field
-        = f.label :password_confirmation, "新しいパスワード"
-        br
-        = f.password_field :password_confirmation, autocomplete: "new-password"
-      .actions
-        = f.submit "パスワードを変更する"
-= render "devise/shared/links"
+      = f.password_field :password, autofocus: true, class: "form-controll"
+      
+      = f.label :password_confirmation, "新しいパスワード"
+      = f.password_field :password_confirmation, class: "form-control"
+      
+      = f.submit "パスワードを変更する", class: "btn main__btn"
+      .horizon
+        hr
+    = render "devise/shared/links"
