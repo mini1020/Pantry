@@ -17,11 +17,4 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     super
   end
-
-  protected
-    # ログイン後の遷移先を指定
-    def after_sign_in_path_for(resource)
-      stored_location_for(resource) || user_path(current_user)
-    end
-
 end
