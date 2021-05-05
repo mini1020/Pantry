@@ -36,7 +36,6 @@ gem "jquery-rails"
 #アプリケーション日本語化
 gem "rails-i18n"
 gem "devise-i18n"
-gem "devise-i18n-views"
 #認可
 # gem "cancancan"
 #ページネーション

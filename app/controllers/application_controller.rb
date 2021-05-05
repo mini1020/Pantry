@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:account_update, keys: [:uname])
     end
 
+    # ログイン後の遷移先を指定
+    def after_sign_in_path_for(resource)
+      # ログイン前にアクセスしようとしていたページがあった場合はそのページに
+      # なければ食品一覧ページに遷移
+      stored_location_for(resource) || user_storage_foods_path(resource)
+    end
+
   private
     def set_user
       @user = if params[:user_id].present?
