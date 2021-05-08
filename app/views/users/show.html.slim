@@ -19,4 +19,4 @@ h1 ユーザー情報
     .btn__user-infomation
       = link_to "編集する", edit_user_registration_path(current_user), class: "btn main__btn"
     .btn__user-infomation
-      = link_to "アカウントを削除する", "#", class: "btn main__btn"
+      = link_to "アカウントの削除", edit_destroy_request_user_path(current_user), class: "btn btn--destroy"

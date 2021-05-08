@@ -6,4 +6,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def edit_destroy_request
+  end
+
+  def update_destroy_request
+  end
+
 end
