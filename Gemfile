@@ -32,7 +32,6 @@ gem "html2slim"
 gem "awesome_print"
 #ビュー作成
 gem "bootstrap", "~> 4.1.1"
-gem "jquery-rails"
 #アプリケーション日本語化
 gem "rails-i18n"
 gem "devise-i18n"

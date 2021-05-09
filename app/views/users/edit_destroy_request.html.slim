@@ -5,4 +5,23 @@ h1 アカウント削除
   .col-md-8.offset-md-2
     p ・登録されているユーザー情報と、ユーザーに紐づく保管場所、食品の情報がすべて削除されます。
     p ・この操作は取り消すことができません。
+    .check__user-infomation
+      = check_box_tag :agree, true, false, { id: "checkbox__agree" }
+      = label_tag :agree, "上記の内容を確認しました"
     
+    = form_with(model: @user, url: update_destroy_request_user_path(@user), local: true) do |f|
+      = f.hidden_field :destroy_request, value: true
+
+      .btn__user-infomation
+        = f.submit "アカウント削除を依頼する", class: "btn btn--destroy disabled", id: "btn__destroy-request"
+
+script 
+  $("#checkbox__agree").change(function() {
+    if ( $(this).is(":checked") ){
+      $("#btn__destroy-request").prop("disabled", false);
+    }
+    else {
+      $("#btn__destroy-request").prop("disabled", true);
+    }
+  });
+

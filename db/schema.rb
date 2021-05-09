@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_074816) do
     t.string "uid"
     t.string "uname", default: "", null: false
     t.boolean "destroy_request", default: false, null: false
-    t.date "destroy_request_date"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
