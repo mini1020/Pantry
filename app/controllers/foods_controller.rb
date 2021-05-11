@@ -30,7 +30,6 @@ class FoodsController < ApplicationController
       flash[:success] = "食品の情報を更新しました。"
       redirect_to user_storage_foods_url
     else
-      debugger
       render :edit
     end
   end
