@@ -24,10 +24,12 @@ gem "omniauth-line"
 gem "omniauth", "~>1.9.1"
 #環境変数設定
 gem "dotenv-rails"
+
 #slim導入
 gem "slim-rails"
 #html.erbをhtmle.slimに変換
 gem "html2slim"
+
 #ターミナル出力整形
 gem "awesome_print"
 #ビュー作成

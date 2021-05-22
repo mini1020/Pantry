@@ -30,4 +30,5 @@ class User < ApplicationRecord
     self.raw_info = raw_info.to_json
     self.save!
   end
+
 end

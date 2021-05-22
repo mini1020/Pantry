@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     sessions: "admins/sessions"
   }
     namespace :admins do
-     resources :users, only: [:index, :edit, :update, :destroy]
+      resources :users, only: [:index, :edit, :update, :destroy] do
+        collection do
+          get "destroy_request"
+        end
+      end
     end
 
   devise_for :users, controllers: {
@@ -19,6 +23,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks",
     passwords: "users/passwords",
   } 
+
+  # ルーティング被りあり
+  devise_scope :user do
+    get "/users/sign_out", to: "users/sessions#destroy", as: :sign_out
+  end
 
   resources :users, only: [:show] do
     member do

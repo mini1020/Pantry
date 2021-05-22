@@ -20,6 +20,9 @@ before_action :authenticate_admin!
     end
   end
 
+  def destroy_request
+  end
+
   def destroy
     @user.destroy
     flash[:success] = "#{@user.uname}の情報を削除しました。"

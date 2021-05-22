@@ -1,7 +1,6 @@
 / slimとは
 / Ruby製のテンプレートエンジン、高速・軽量
 / htmlの閉じタグ不要、条件分岐などのend不要、インデントによって階層構造を表現するためずれるとエラーになる
-
 doctype html
 html
   head
@@ -11,8 +10,8 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    / jQuery読み込み。bootstrapより先でないといけない
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     = render "layouts/shim"
   body
     = render "layouts/header"
@@ -22,3 +21,8 @@ html
           = msg
       = yield
       = debug(params) if Rails.env.development?
+
+      / javascript:
+      /   $(function(){
+      /     alert("jQuery is redy.")
+      /   });

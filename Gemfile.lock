@@ -114,8 +114,8 @@ GEM
       activesupport (>= 4.2.0)
     hashie (4.1.0)
     hpricot (0.8.6)
+    hpricot (0.8.6-i386-mswin32)
     hpricot (0.8.6-java)
-    hpricot (0.8.6-x86-mswin32)
     html2slim (0.2.0)
       hpricot
     i18n (1.8.10)
