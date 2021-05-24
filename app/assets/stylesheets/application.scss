@@ -14,5 +14,6 @@
  *= require_self
  */
  
- @import "bootstrap";
- @import "custom";
+@import "bootstrap/scss/bootstrap"; //←追記
+@import "custom";
+

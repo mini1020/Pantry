@@ -32,8 +32,6 @@ gem "html2slim"
 
 #ターミナル出力整形
 gem "awesome_print"
-#ビュー作成
-gem "bootstrap", "~> 4.1.1"
 #アプリケーション日本語化
 gem "rails-i18n"
 gem "devise-i18n"
