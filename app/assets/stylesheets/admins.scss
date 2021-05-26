@@ -1,3 +1,40 @@
 .table--all-user th, .table--all-user td {
   color: #eceab7;
 }
+
+.destroy--notice{
+  font-size: 0.8em;
+}
+
+// ユーザ情報削除申請確認モーダル
+.modal--destroy-user th, .modal--destroy-user td {
+  color: #491A00;
+}
+
+.modal--destroy-user .modal-title {
+  color: #491A00;
+  font-size: 1.5em;
+}
+
+.modal-dialog .modal--color {
+  background-color: bisque;
+}
+
+tbody > tr > .border--color {
+  border-color: #957275;
+}
+
+// テーブルの枠線を消す
+tbody > tr > .noborder {
+  border: 0px none;
+}
+
+// ユーザー一覧表示テーブル
+.text--center {
+  text-align: center;
+}
+
+.btn--margin {
+  margin-left: 10px;
+  margin-right: 10px;
+}

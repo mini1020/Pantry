@@ -1,6 +1,7 @@
 # 管理者
 class Admins::UsersController < ApplicationController
 before_action :set_user, only: [:edit, :update, :destroy]
+before_action :set_destroy_users, only: [:index, :destroy_request]
 before_action :authenticate_admin!
 
   def index
@@ -32,6 +33,10 @@ before_action :authenticate_admin!
   private
     def user_params
       params.require(:user).permit(:uname, :email, :password, :password_confirmation)
+    end
+
+    def set_destroy_users
+      @destroy_users = User.where(is_deleted: true)
     end
 
   protected
