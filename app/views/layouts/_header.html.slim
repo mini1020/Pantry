@@ -6,14 +6,14 @@ header.navbar.navbar-light style="background-color: #491a00"
         - if admin_signed_in?
           li 管理者
           li = link_to "ユーザー一覧", admins_users_path, class: "nav__btn"
-          li = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav__btn"  
+          li = link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav__btn"  
 
         - elsif user_signed_in?
           li = current_user.uname
           li = link_to "食品一覧", user_storage_foods_path(current_user), class: "nav__btn"
           li = link_to "保管場所一覧", user_storages_path(current_user), class: "nav__btn"
           li = link_to  "ユーザー情報", user_path(current_user), class: "nav__btn"
-          li = link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "nav__btn"  
+          li = link_to  "ログアウト", sign_out_path, method: :delete, class: "nav__btn"  
         - else
           li = link_to "ログイン", new_user_session_path, class: "nav__btn"
           li = link_to "ユーザー登録", new_user_registration_path, class: "nav__btn"

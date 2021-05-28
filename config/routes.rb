@@ -17,16 +17,17 @@ Rails.application.routes.draw do
       end
     end
 
-  devise_for :users, controllers: {
-    registrations: "users/registrations",
-    sessions: "users/sessions",
-    omniauth_callbacks: "users/omniauth_callbacks",
-    passwords: "users/passwords",
-  } 
-
-  # ルーティング被りあり
+  devise_for :users, 
+    skip: "sessions",
+    controllers: {
+      registrations: "users/registrations",
+      omniauth_callbacks: "users/omniauth_callbacks",
+      passwords: "users/passwords",
+    }
   devise_scope :user do
-    get "/users/sign_out", to: "users/sessions#destroy", as: :sign_out
+    get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
+    post 'users/sign_in', to: 'users/sessions#create', as: :user_session
+    delete 'users/sign_out', to: 'users/sessions#destroy', as: :sign_out
   end
 
   resources :users, only: [:show] do
