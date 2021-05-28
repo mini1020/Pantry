@@ -10,17 +10,31 @@ Rails.application.routes.draw do
     sessions: "admins/sessions"
   }
     namespace :admins do
-     resources :users, only: [:index, :edit, :update, :destroy]
+      resources :users, only: [:index, :edit, :update, :destroy] do
+        collection do
+          get "destroy_request"
+        end
+      end
     end
 
-  devise_for :users, controllers: {
-    registrations: "users/registrations",
-    sessions: "users/sessions",
-    omniauth_callbacks: "users/omniauth_callbacks",
-    passwords: "users/passwords",
-  } 
+  devise_for :users, 
+    skip: "sessions",
+    controllers: {
+      registrations: "users/registrations",
+      omniauth_callbacks: "users/omniauth_callbacks",
+      passwords: "users/passwords",
+    }
+  devise_scope :user do
+    get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
+    post 'users/sign_in', to: 'users/sessions#create', as: :user_session
+    delete 'users/sign_out', to: 'users/sessions#destroy', as: :sign_out
+  end
 
   resources :users, only: [:show] do
+    member do
+      get "edit_destroy_request"
+      patch "update_destroy_request"
+    end
     resources :storages, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
@@ -30,5 +44,7 @@ Rails.application.routes.draw do
   get "/users/:user_id/storages/:storage_id/foods/:id/edit", to: "foods#edit", as: "edit_user_storage_food"
   patch "/users/:user_id/storages/:storage_id/foods/:id", to: "foods#update", as: "update_user_storage_food"
   delete "/users/:user_id/storages/:storage_id/foods/:id/", to: "foods#destroy", as: "destroy_user_storage_food"
+
+
 
 end

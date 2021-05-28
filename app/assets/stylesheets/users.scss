@@ -2,22 +2,24 @@
   text-align: center;
 }
 
+.check__user-infomation {
+  text-align: center;
+}
+
 .btn__user-infomation .main__btn {
   margin: 5px;
   padding: 8px 50px;
 }
 
-// テーブルの枠線を消す
-tbody > tr > .noborder {
-  border: 0px none;
+.btn__user-infomation .btn__destroy--request {
+  margin: 5px;
+  padding: 8px 50px;
 }
 
-// ユーザー一覧表示テーブル
-.text--center {
-  text-align: center;
-}
-
-.btn--margin {
-  margin-left: 10px;
+// チェックボックス
+#checkbox__agree {
+  width: auto;
+  height: 17px;
   margin-right: 10px;
+  transform: scale(1.8);
 }

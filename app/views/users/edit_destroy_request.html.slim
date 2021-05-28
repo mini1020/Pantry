@@ -1,0 +1,18 @@
+- provide(:title, "User destroy request")
+
+h1 アカウント削除
+.row
+  .col-md-8.offset-md-2
+    p ・登録されているユーザー情報と、ユーザーに紐づく保管場所、食品の情報がすべて削除されます。
+    p ・この操作は取り消すことができません。
+    p ・ユーザー情報は1週間以内に削除されます。
+    p ・削除依頼後は自動的にログアウトします。
+    .check__user-infomation
+      = check_box_tag :agree, true, false, { id: "checkbox__agree" }
+      = label_tag :agree, "上記の内容を確認しました"
+    
+    = form_with(model: @user, url: update_destroy_request_user_path(@user), local: true) do |f|
+      = f.hidden_field :is_deleted, value: true
+
+      .btn__user-infomation
+        = f.submit "アカウント削除を依頼する", class: "btn btn--destroy", id: "btn__destroy--request", disabled: "disabled"

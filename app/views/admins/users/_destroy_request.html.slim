@@ -1,0 +1,21 @@
+.modal-dialog.modal-lg
+  .modal-content.modal--color
+    .modal-body
+      button.float-end.btn-close[data-bs-dismiss="modal"]
+      br
+      .modal--destroy-user
+        h2.modal-title ユーザー情報削除依頼一覧
+        br
+        table.table.text--center
+          - @destroy_users.each do |destroy_user|
+            tr
+              th.border--color = User.human_attribute_name :uname
+              th.border--color = User.human_attribute_name :email
+              th.border--color
+            tr
+              td.noborder = destroy_user.uname
+              td.noborder = destroy_user.email
+              td.noborder
+                = link_to "削除", admins_user_path(destroy_user), method: :delete,
+                  data: { confirm: "削除してよろしいですか？" },
+                  class: "btn btn--destroy btn--margin"
