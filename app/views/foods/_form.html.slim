@@ -17,5 +17,5 @@
   = f.collection_select(:storage_id, Storage.all, :id, :place, { include_blank: true }, { class: "form-control" })
 
   .btn__storages--center
-    = link_to "キャンセル", "#", class: "btn main__btn"
-    = f.submit "登録する", class: "btn main__btn"
+    = link_to "戻る", :back, class: "btn main__btn"
+    = f.submit yield(:button_text), class: "btn main__btn"
