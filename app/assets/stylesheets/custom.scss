@@ -1,7 +1,6 @@
 
 /* 全体 */
 body {
-  // padding-top: 60px;
   background-color: #f8f4e6;
   color: #491a00;
   font-size: 1.5em;
@@ -9,7 +8,7 @@ body {
   // position: relative;
   background-image: url("下枠.png");
   background-size: 70% 25%;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   background-attachment: fixed;
   background-position: bottom;
   z-index: -1;
