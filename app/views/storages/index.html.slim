@@ -7,18 +7,24 @@ h1 保管場所一覧
     .btn__storages--center
       = link_to "保管場所を追加する", new_user_storage_path(@user), class: "btn main__btn"
       = link_to "食品一覧へ", user_storage_foods_path(@user), class: "btn main__btn"
-      
-    table.table.text--center.table__font-color
-      tr
-        th.noborder = Storage.human_attribute_name :place
-        th.noborder
-        
-      - @storages.each do |storage|
+    
+    - if @storages.present?
+      table.table.text--center.table__font-color
         tr
-          td = storage.place
-          td
-             = link_to "編集", edit_user_storage_path(@user, storage), class: "btn btn--edit btn--margin"
-             = link_to "削除", user_storage_path(@user, storage), method: :delete,
-               data: { confirm: "削除してよろしいですか？" },
-               class: "btn btn--destroy btn--margin"
-    = paginate(@storages)
+          th.noborder = Storage.human_attribute_name :place
+          th.noborder
+          
+        - @storages.each do |storage|
+          tr
+            td = storage.place
+            td
+              = link_to "編集", edit_user_storage_path(@user, storage), class: "btn btn--edit btn--margin"
+              = link_to "削除", user_storage_path(@user, storage), method: :delete,
+                data: { confirm: "削除してよろしいですか？" },
+                class: "btn btn--destroy btn--margin"
+      = paginate(@storages)
+    
+    - else
+      .text--center
+        br
+        p 保管場所が登録されていません。
