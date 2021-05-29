@@ -1,4 +1,3 @@
-// @import "bootstrap";
 
 /* 全体 */
 body {
@@ -151,6 +150,15 @@ ul {
   font-size: 0.8em;
   margin-top: 6px;
   vertical-align: middle;
+}
+
+// テーブルのレイアウト、文字色
+.text--center {
+  text-align: center;
+}
+
+.table__font-color th, .table__font-color td {
+  color: #eceab7;
 }
 
 // deviseモジュールに対応するリンク

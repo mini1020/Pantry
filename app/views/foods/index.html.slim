@@ -7,27 +7,27 @@ h1 食品一覧
     .btn__storages--center
       = link_to "食品を追加する", new_user_storage_food_path(@user), class: "btn main__btn"
       = link_to "保管場所一覧へ", user_storages_path(@user), class: "btn main__btn"
-      
-    table.table.text--center
-      tr
-        th.noborder = Food.human_attribute_name :fname
-        th.noborder = Food.human_attribute_name :quantity
-        th.noborder = Food.human_attribute_name :purchase
-        th.noborder = Food.human_attribute_name :expiration
-        th.noborder = Storage.human_attribute_name :place
-        th.noborder
-      
-      - @storages.each do |storage|
-        - storage.foods.each do |food|
-          tr
-            td = food.fname
-            td = food.quantity
-            td = l(food.purchase, formats: :long) if food.purchase.present?
-            td = l(food.expiration, formats: :long) if food.expiration.present?
-            td = storage.place
-            td
-              = link_to "編集", edit_user_storage_food_path(storage.user_id, storage.id, food), class: "btn btn--edit btn--margin"
-              = link_to "削除", destroy_user_storage_food_path(storage.user_id, storage.id, food), method: :delete,
-                data: { confirm: "削除してよろしいですか？" },
-                class: "btn btn--destroy btn--margin"
-    / = paginate(@storages) 
+  
+      table.table.text--center.table__font-color
+        tr
+          th.noborder = Food.human_attribute_name :fname
+          th.noborder = Food.human_attribute_name :quantity
+          th.noborder = Food.human_attribute_name :purchase
+          th.noborder = Food.human_attribute_name :expiration
+          th.noborder = Storage.human_attribute_name :place
+          th.noborder
+        
+        - @storages.each do |storage|
+          - storage.foods.each do |food|
+            tr
+              td = food.fname
+              td = food.quantity
+              td = l(food.purchase, formats: :long) if food.purchase.present?
+              td = l(food.expiration, formats: :long) if food.expiration.present?
+              td = storage.place
+              td
+                = link_to "編集", edit_user_storage_food_path(storage.user_id, storage.id, food), class: "btn btn--edit btn--margin"
+                = link_to "削除", destroy_user_storage_food_path(storage.user_id, storage.id, food), method: :delete,
+                  data: { confirm: "削除してよろしいですか？" },
+                  class: "btn btn--destroy btn--margin"
+      / = paginate(@storages) 
