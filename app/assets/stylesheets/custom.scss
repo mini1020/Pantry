@@ -1,30 +1,21 @@
-// @import "bootstrap";
 
 /* 全体 */
 body {
-  padding-top: 60px;
-  background-color: #491a00;
-  color: #eceab7;
+  background-color: #f8f4e6;
+  color: #491a00;
   font-size: 1.5em;
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   // position: relative;
   background-image: url("下枠.png");
   background-size: 70% 25%;
-  background-repeat: no-repeat;
+  background-repeat: repeat-x;
   background-attachment: fixed;
   background-position: bottom;
   z-index: -1;
 }
 
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-section {
-  overflow: auto;
+  margin-top: 200px;
 }
 
 /* 文字デザイン */
@@ -52,94 +43,104 @@ h2 {
 p {
   font-size: 1em;
   margin-top: 0.5em;
-  // line-height: 2.5em;
 }
 
 /* header */
-.navbar > .navbar--height {
-  position: absolute;
-  top: -80%;
-}
-
 #logo {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   margin-right: 10px;
   font-size: 3em;
-  color: #eceab7;
+  color: #f8f4e6;
   letter-spacing: -1px;
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
 }
 
-.navbar-nav ul li a.nav__btn {
+.navbar-nav li a.nav__btn {
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   font-size: 1em;
   text-align: center;
   text-decoration: none;
-  color: #eceab7;
-  background-color: #957275;
-  border-radius: 5px;
-  padding: 30px 15px;
-  margin-top: 30px;
-  display: inline-block
+  color: #f8f4e6;
+  padding: 15px 20px 0px 20px;
+  display: inline-block;
 }
 
-.navbar-nav ul li a.nav__btn:hover {
-  color: #957275;
-  background-color: #eceab7;
+.navbar-nav li a.nav__btn:hover {
+  color: #491a00;
 }
 
-.navbar-nav ul li {
-  float: left;
+#navbar__dropdown {
+  color: #f8f4e6;
+  padding-top: 15px;
+}
+
+#navbar__dropdown:hover {
+  color: #491a00;
+  padding-top: 15px;
+}
+
+.nav-item ul li a.dropdown-item {
+  font-size: 1.2em;
+  color: #491a00;
+}
+
+nav .container-fluid ul li #menu--color {
+  background-color: #f8f4e6;
 }
 
 /* main */
 // メイン部分のボタン
 .main__btn {
   font-size: 0.8em;
-  color: #eceab7;
-  background-color: #957275;
+  color: #f8f4e6;
+  background-color: #856859;
 }
 
 .main__btn:hover {
   font-size: 0.8em;
-  color: #957275;
-  background-color: #eceab7;
+  color: #f8f4e6;
+  background-color: #b4866b;
 }
 
 a.main__link {
-  color: #eceab7;
+  color: #491a00;
+  text-decoration: none;
+}
+
+a.main__link:hover{
+  color: #b4866b;
 }
 
 //編集、削除ボタン
 .btn--edit {
   font-size: 0.8em;
-  color: #eceab7;
+  color: #f8f4e6;
   background-color: #485538;
 }
 
 .btn--edit:hover{
   font-size: 0.8em;
-  color: #485538;
-  background-color: #eceab7;
+  color: #f8f4e6;
+  background-color: #839b5c;
 }
 
 .btn--destroy {
   font-size: 0.8em;
-  color: #eceab7;
+  color: #f8f4e6;
   background-color: #a43121;
 }
 
 .btn--destroy:hover {
   font-size: 0.8em;
-  color: #a43121;
-  background-color: #eceab7;
+  color: #f8f4e6;
+  background-color: #ce5242;
 }
 
 // 区切りのライン
 .horizon hr {
-  border-top: 1px solid #eceab7;
+  border-top: 1px solid #856859;
 }
 
 ul {
@@ -151,6 +152,15 @@ ul {
   font-size: 0.8em;
   margin-top: 6px;
   vertical-align: middle;
+}
+
+// テーブルのレイアウト、文字色
+.text--center {
+  text-align: center;
+}
+
+.table__font-color th, .table__font-color td {
+  color: #491a00;;
 }
 
 // deviseモジュールに対応するリンク
@@ -192,6 +202,7 @@ ul {
 /* debug */
 .debug_dump {
   background-color: #fff;
+  color:black;
   clear: both;
   float: left;
   width: 100%;

@@ -18,6 +18,7 @@ class FoodsController < ApplicationController
       flash[:success] = "食品を登録しました。"
       redirect_to user_storage_foods_url
     else
+      flash[:danger] = "登録をキャンセルしました。未入力の項目があります。"
       render :new
     end
   end
@@ -30,6 +31,7 @@ class FoodsController < ApplicationController
       flash[:success] = "食品の情報を更新しました。"
       redirect_to user_storage_foods_url
     else
+      flash[:danger] = "更新をキャンセルしました。未入力の項目があります。"
       render :edit
     end
   end

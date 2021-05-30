@@ -1,8 +1,8 @@
   = f.label :place, class: "label--fontstyle"
-  = f.text_field :place, autofocus: true, class: "form-control"
+  = f.text_field :place, autofocus: true, required: true,class: "form-control"
 
   = f.hidden_field :user_id, value: current_user.id
 
   .btn__storages--center
-    = link_to "キャンセル", "#", class: "btn main__btn"
-    = f.submit "登録する", class: "btn main__btn"
+    = link_to "戻る", :back, class: "btn main__btn"
+    = f.submit yield(:button_text), class: "btn main__btn"
