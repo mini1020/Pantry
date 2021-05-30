@@ -1,5 +1,5 @@
   = f.label :place, class: "label--fontstyle"
-  = f.text_field :place, autofocus: true, class: "form-control"
+  = f.text_field :place, autofocus: true, required: true,class: "form-control"
 
   = f.hidden_field :user_id, value: current_user.id
 
