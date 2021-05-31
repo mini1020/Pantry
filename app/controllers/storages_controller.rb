@@ -16,7 +16,6 @@ class StoragesController < ApplicationController
       flash[:success] = "保管場所を登録しました。"
       redirect_to user_storages_url
     else
-      flash[:danger] = "登録をキャンセルしました。未入力の項目があります。"
       render :new
     end
   end
@@ -29,7 +28,7 @@ class StoragesController < ApplicationController
       flash[:success] = "保管場所情報を更新しました。"
       redirect_to user_storages_url
     else
-      flash[:danger] = "更新をキャンセルしました。未入力の項目があります。"
+      # flash[:danger] = "更新をキャンセルしました。未入力の項目があります。"
       render :edit
     end
   end
