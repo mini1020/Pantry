@@ -1,12 +1,15 @@
 class User < ApplicationRecord
   has_many :storages, dependent: :destroy
 
+  validates :uname, presence: true, null: false, length: { maximum: 10 }
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable
   devise :database_authenticatable, # DBに保存されたパスワードを使ってユーザーを認証する機能
          :registerable, :recoverable, :rememberable, 
          :validatable, #emailとpasswordに対してバリデーションの設定を行う
          :omniauthable, omniauth_providers: %i[line]
+
 
   def social_profile(provider)
     #条件に一致する値のみを抽出する。.to_sは文字列以外→文字列
