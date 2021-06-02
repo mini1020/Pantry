@@ -192,12 +192,22 @@ ul {
 }
 
 /* エラーメッセージ */
-// .field_with_errors {
-//   @extend .has-error;
-//   .form-control {
-//     color: $state-danger-text;
-//   }
-// }
+#error_explanation {
+  color: #b94047;
+  ul {
+    color: #b94047;
+    margin: 0 0 30px 0;
+  }
+  li {
+    list-style-type: disc;
+  }
+}
+// @extend → スタイルの継承 !optional → セレクタが存在しなかった場合のエラーを防ぐ
+.field_with_errors {
+  .form-control{
+    @extend .is-invalid !optional;
+  }
+}
 
 /* debug */
 .debug_dump {

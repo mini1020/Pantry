@@ -5,4 +5,5 @@ h1 食品登録
 .row
   .col-md-6.offset-md-3
     = form_with model: @food, url: user_storage_food_path(@user), local: true do |f|
+      = render "users/shared/error_messages", resource: @food
       = render "form", f: f

@@ -5,5 +5,5 @@ h1 ユーザー情報編集
 .row
   .col-md-6.offset-md-3
     = form_with(model: resource, url: user_registration_path, local: true) do |f|
-      = render "devise/shared/error_messages", resource: resource
+      = render "users/shared/error_messages", resource: resource
       = render "form", f: f
