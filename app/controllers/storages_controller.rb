@@ -3,7 +3,7 @@ class StoragesController < ApplicationController
   before_action :set_storage, only: [:edit, :update, :destroy]
 
   def index
-    @storages = Storage.page(params[:page]).per(5)
+    @storages = Storage.where(user_id: current_user.id).page(params[:page]).per(5)
   end
 
   def new

@@ -1,10 +1,12 @@
 class Food < ApplicationRecord
   belongs_to :storage
+  has_one :user, through: :user
 
   validates :fname, presence: true, null: false,
-                   length: { maximum: 40 }
+                    length: { maximum: 40 }
   validates :quantity, presence: true
-  validates :quantity, numericality: { greater_than_or_equal_to: 1, less_than: 30 }, allow_blank: true
+  validates :quantity, numericality: { greater_than_or_equal_to: 1, less_than: 30 },
+                       allow_blank: true
   validates :purchase, presence: true, null: false
   validate :purchasedate_earlier_than_not_today_possible,
            :expirationdate_before_inputdate_is_not_possible,

@@ -4,11 +4,11 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:edit, :update, :destroy]
 
   def index
-    @storages = Storage.all
+    @foods = current_user.foods.all.page(params[:page]).per(5)
   end
 
   def new
-    @storages = Storage.all
+    @storages = Storage.where(user_id: current_user.id)
     @food = Food.new
   end
 
