@@ -6,7 +6,9 @@ class Food < ApplicationRecord
                     length: { maximum: 40 }
   validates :quantity, presence: true
   validates :quantity, numericality: { greater_than_or_equal_to: 1, less_than: 30 },
-                       allow_blank: true
+                       allow_blank: true, on: :create
+  validates :quantity, numericality: { greater_than_or_equal_to: 0, less_than: 30 },
+                       allow_blank: true, on: :update # 更新時は0も可
   validates :purchase, presence: true, null: false
   validate :purchasedate_earlier_than_not_today_possible,
            :expirationdate_before_inputdate_is_not_possible,

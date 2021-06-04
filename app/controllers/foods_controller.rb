@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_user
   before_action :set_storage, only: [:edit, :update, :destroy]
+  before_action :set_storages, only: [:new, :create, :edit, :update]
   before_action :set_food, only: [:edit, :update, :destroy]
 
   def index
@@ -8,7 +9,6 @@ class FoodsController < ApplicationController
   end
 
   def new
-    @storages = Storage.where(user_id: current_user.id)
     @food = Food.new
   end
 
@@ -27,7 +27,13 @@ class FoodsController < ApplicationController
 
   def update
     if @food.update(food_params)
-      flash[:success] = "食品の情報を更新しました。"
+      # この時点で数量0の場合は削除処理を行う
+      if @food.quantity == 0
+        @food.destroy
+        flash[:success] = "#{@food.fname}を使い切りました。"
+      else
+        flash[:success] = "食品の情報を更新しました。"
+      end
       redirect_to user_storage_foods_url
     else
       render :edit
@@ -47,6 +53,10 @@ class FoodsController < ApplicationController
 
     def set_food
       @food = Food.find(params[:id])
+    end
+
+    def set_storages
+      @storages = Storage.where(user_id: current_user.id)
     end
 
 end
