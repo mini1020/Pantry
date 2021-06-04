@@ -5,7 +5,7 @@
   = f.number_field :quantity, class: "form-control", required: true
 
   = f.label :purchase, class: "label--fontstyle"
-  = f.date_field :purchase, class: "form-control", required: true
+  = f.date_field :purchase, value: Date.current, class: "form-control", required: true
 
   = f.label :expiration, class: "label--fontstyle"
   = f.date_field :expiration, class: "form-control"
