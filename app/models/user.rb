@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :storages, dependent: :destroy
-  has_many :foods, through: :storages
+  has_many :foods, through: :storages, dependent: :destroy
 
   validates :uname, presence: true, null: false, length: { maximum: 10 }
   
