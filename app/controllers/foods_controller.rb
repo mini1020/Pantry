@@ -34,7 +34,7 @@ class FoodsController < ApplicationController
       else
         flash[:success] = "食品の情報を更新しました。"
       end
-      redirect_to user_storage_foods_url
+      redirect_to user_storage_foods_url(current_user)
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy
     flash[:success] = "#{@food.fname}の情報を削除しました。"
-    redirect_to user_storage_foods_url
+    redirect_to user_storage_foods_url(current_user)
   end
 
   private

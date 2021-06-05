@@ -14,7 +14,8 @@ class StoragesController < ApplicationController
     @storage = Storage.new(storage_params)
     if @storage.save
       flash[:success] = "保管場所を登録しました。"
-      redirect_to user_storages_url
+      debugger
+      redirect_to user_storages_url(current_user)
     else
       render :new
     end
@@ -26,7 +27,7 @@ class StoragesController < ApplicationController
   def update
     if @storage.update(storage_params)
       flash[:success] = "保管場所情報を更新しました。"
-      redirect_to user_storages_url
+      redirect_to user_storages_url(current_user)
     else
       render :edit
     end
