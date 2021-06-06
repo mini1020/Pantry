@@ -12,8 +12,8 @@ h1 パスワード再設定
       .col-md-6.offset-md-3
         = f.email_field :email, autofocus: true, placeholder: "メールアドレスを入力してください", class: "form-control"
       br
-      p パスワード再設定用URLを送信します。ご登録いただいているメールアドレスを入力し、「送信する」ボタンをクリックしてください。      
-      
+      p ・パスワード再設定用URLを送信します。ご登録いただいているメールアドレスを入力し、<br>&ensp;「送信する」ボタンをクリックしてください。      
+      p ・しばらく経ってもメールが届かない場合は、メールアドレスをご確認の上再度お試しください。  
       .btn__password--center
         = f.submit "送信する", class: "btn main__btn"
 
