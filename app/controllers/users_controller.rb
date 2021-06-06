@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def update_destroy_request
+    debugger
     if @user.update(destroy_request_params)
       flash[:notice] = "アカウント削除依頼を行いました。またのご利用をお待ちしています。"
       redirect_to sign_out_path #showアクションに飛んでエラーになる

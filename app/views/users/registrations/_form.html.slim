@@ -3,12 +3,13 @@
   
   = f.label :email, class: "label--fontstyle"
   = f.email_field :email, class: "form-control"
-
-  = f.label :password, class: "label--fontstyle"
-  - if @minimum_password_length
-    | (
-    = @minimum_password_length
-    |  文字以上)
+  
+  .label--fontstyle
+    = f.label :password
+    - if @minimum_password_length
+      | (
+      = @minimum_password_length
+      |  文字以上)
   = f.password_field :password, class: "form-control"
 
   = f.label :password_confirmation, class: "label--fontstyle"
