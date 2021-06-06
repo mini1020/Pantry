@@ -11,9 +11,8 @@ class UsersController < ApplicationController
 
   def update_destroy_request
     if @user.update(destroy_request_params)
-      flash[:notice] = "アカウント削除依頼を行いました。またのご利用をお待ちしています。"
       redirect_to sign_out_path
-      # 削除申請が出されると管理者にメールが飛ぶ
+      # 削除申請が出されると管理者にメールが飛ぶようにしたい
     else
       render :edit_destory_request
     end

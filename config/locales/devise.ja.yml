@@ -116,6 +116,7 @@ ja:
         sign_in: ログイン
       signed_in: ログインしました。
       signed_out: ログアウトしました。
+      delete_user_account: アカウント削除依頼を行いました。またのご利用をお待ちしています。
     shared:
       links:
         back: 戻る

@@ -8,7 +8,7 @@ nav.navbar.navbar-expand-lg.fixed-top style="background-color: #856859"
             = "管理者"
           ul.dropdown-menu.dropdown-menu-end#menu--color aria-labelledby="navbarDropdown"
             li = link_to "ユーザー一覧", admins_users_path, class: "dropdown-item"
-            li = link_to  "ログアウト", sign_out_path, method: :delete, class: "dropdown-item" 
+            li = link_to  "ログアウト", destroy_admin_session_path, method: :delete, class: "dropdown-item" 
 
       - elsif user_signed_in?
         li = link_to "食品一覧", user_storage_foods_path(current_user), class: "nav__btn"
@@ -18,7 +18,7 @@ nav.navbar.navbar-expand-lg.fixed-top style="background-color: #856859"
             = current_user.uname
           ul.dropdown-menu.dropdown-menu-end#menu--color aria-labelledby="navbarDropdown"
             li = link_to  "ユーザー情報", user_path(current_user), class: "dropdown-item"
-            li = link_to  "ログアウト", sign_out_path, method: :delete, class: "dropdown-item"
+            li = link_to  "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item"
 
       - else
         li = link_to "ログイン", new_user_session_path, class: "nav__btn"
