@@ -3,8 +3,8 @@
 h1 ログイン
 .row
   .col-md-6.offset-md-3
-    = form_with(model: @user, url: user_session_path, local: true) do |f|
-      = render "devise/shared/error_messages", resource: resource
+    = form_with(model: resource, url: user_session_path, local: true) do |f|
+      = render "users/shared/error_messages", resource: resource
 
       = f.label :email, class: "label--fontstyle"
       = f.email_field :email, class: "form-control"

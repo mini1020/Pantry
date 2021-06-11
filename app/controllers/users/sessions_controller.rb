@@ -16,7 +16,19 @@ class Users::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-    super
+    path = Rails.application.routes.recognize_path(request.referer)
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    # ユーザー情報削除申請が出されていた場合は、フラッシュメッセージを変える
+    if signed_out
+      # 削除申請後はidがpashハッシュに含まれる
+      if User.find(path[:id] || path[:user_id]).is_deleted
+        set_flash_message! :notice, :delete_user_account
+      else
+        set_flash_message! :notice, :signed_out
+      end
+    end
+    yield if block_given?
+    respond_to_on_destroy
   end
 
   protected

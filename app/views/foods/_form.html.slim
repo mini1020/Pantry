@@ -1,11 +1,11 @@
   = f.label :fname, class: "label--fontstyle"
-  = f.text_field :fname, autofocus: true, class: "form-control"
+  = f.text_field :fname, autofocus: true, class: "form-control", required: true
 
   = f.label :quantity, class: "label--fontstyle"
-  = f.number_field :quantity, class: "form-control"
+  = f.number_field :quantity, class: "form-control", required: true
 
   = f.label :purchase, class: "label--fontstyle"
-  = f.date_field :purchase, class: "form-control"
+  = f.date_field :purchase, value: Date.current, class: "form-control", required: true
 
   = f.label :expiration, class: "label--fontstyle"
   = f.date_field :expiration, class: "form-control"
@@ -14,7 +14,7 @@
   = f.date_field :notice, class: "form-control"
 
   = f.label :storage_id, class: "label--fontstyle"
-  = f.collection_select :storage_id, Storage.all, :id, :place, { include_blank: true }, { class: "form-control" }
+  = f.collection_select :storage_id, @storages, :id, :place, { include_blank: true }, { class: "form-control", required: true }
 
   .btn__storages--center
     = link_to "戻る", :back, class: "btn main__btn"
