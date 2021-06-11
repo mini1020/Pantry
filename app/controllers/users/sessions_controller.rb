@@ -20,6 +20,7 @@ class Users::SessionsController < Devise::SessionsController
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
     # ユーザー情報削除申請が出されていた場合は、フラッシュメッセージを変える
     if signed_out
+      # 削除申請後はidがpashハッシュに含まれる
       if User.find(path[:id] || path[:user_id]).is_deleted
         set_flash_message! :notice, :delete_user_account
       else
