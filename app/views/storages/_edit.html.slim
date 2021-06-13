@@ -6,6 +6,9 @@
       button.float-end.btn-close[data-bs-dismiss="modal"]
       br
       h1 保管場所編集
-      = form_with model: @storage, url: user_storage_path(@user), local: true do |f|
+
+      .js-message-errors
+
+      = form_with model: @storage, url: user_storage_path(@user) do |f|
         = render "users/shared/error_messages", resource: @storage
         = render "form", f: f

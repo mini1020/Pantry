@@ -1,4 +1,6 @@
 class StoragesController < ApplicationController
+  include AjaxHelper
+  
   before_action :set_user
   before_action :set_storage, only: [:edit, :update, :destroy]
 
@@ -12,11 +14,15 @@ class StoragesController < ApplicationController
 
   def create
     @storage = Storage.new(storage_params)
-    if @storage.save
-      flash[:success] = "保管場所を登録しました。"
-      redirect_to user_storages_url(current_user)
-    else
-      render :new
+    respond_to do |format|
+      if @storage.save
+        format.html
+        format.js { render ajax_redirect_to(user_storages_url), 
+                    flash[:notice] = "#{@storage.place}を登録しました。" }
+      else
+        format.html { render :new }
+        format.js { render "messages/errors" }
+      end
     end
   end
 
@@ -24,11 +30,15 @@ class StoragesController < ApplicationController
   end
 
   def update
-    if @storage.update(storage_params)
-      flash[:success] = "保管場所情報を更新しました。"
-      redirect_to user_storages_url(current_user)
-    else
-      render :edit
+    respond_to do |format|
+      if @storage.update(storage_params)
+        format.html
+        format.js { render ajax_redirect_to(user_storages_url), 
+                    flash[:notice] = "保管場所情報を更新しました。" }
+      else
+        format.html { render :edit }
+        format.js { render "messages/errors" }
+      end
     end
   end
 

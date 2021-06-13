@@ -20,7 +20,7 @@ class FoodsController < ApplicationController
       if @food.save
         format.html
         format.js { render ajax_redirect_to(user_storage_foods_url), 
-                    flash[:success] = "#{@food.fname}の情報を登録しました。" }
+                    flash[:notice] = "#{@food.fname}の情報を登録しました。" }
       else
         format.html { render :new }
         format.js { render "messages/errors" }
@@ -39,11 +39,11 @@ class FoodsController < ApplicationController
           @food.destroy
           format.html
           format.js { render ajax_redirect_to(user_storage_foods_url), 
-                      flash[:success] = "#{@food.fname}を使い切りました。" }
+                      flash[:notice] = "#{@food.fname}を使い切りました。" }
         else
           format.html
           format.js { render ajax_redirect_to(user_storage_foods_url), 
-                      flash[:success] = "#{@food.fname}の情報を更新しました。" }
+                      flash[:notice] = "#{@food.fname}の情報を更新しました。" }
         end
       else
         format.html { render :edit }
@@ -54,7 +54,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food.destroy
-    flash[:success] = "#{@food.fname}の情報を削除しました。"
+    flash[:notice] = "#{@food.fname}の情報を削除しました。"
     redirect_to user_storage_foods_url(current_user)
   end
 
