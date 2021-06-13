@@ -1,5 +1,4 @@
 class Storage < ApplicationRecord
-  
   belongs_to :user
   has_many :foods, dependent: :destroy
 
@@ -9,10 +8,12 @@ class Storage < ApplicationRecord
   validate :same_user_same_place_cannot_registered
 
   def same_user_same_place_cannot_registered
-    if user_id.present? && Storage.exists?(user_id: user_id)
-      if place.present? && Storage.exists?(place: place)
-        debugger
-        errors.add(:place, "は既に登録済みです。他の場所を登録して下さい")
+    if id.nil?
+      if user_id.present? && Storage.exists?(user_id: user_id)
+        if place.present? && Storage.exists?(place: place)
+          debugger
+          errors.add(:place, "は既に登録済みです。他の場所を登録して下さい")
+        end
       end
     end
   end

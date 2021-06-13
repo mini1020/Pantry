@@ -1,0 +1,14 @@
+- provide(:button_text, "登録する")
+
+.modal-dialog.modal-lg
+  .modal-content.modal--color
+    .modal-body
+      button.float-end.btn-close[data-bs-dismiss="modal"]
+      br
+      h1 食品登録
+
+      .js-message-errors
+
+      = form_with model: @food, url: user_storage_food_path(@user) do |f|
+        = render "users/shared/error_messages", resource: @food
+        = render "form", f: f

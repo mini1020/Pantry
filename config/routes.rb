@@ -44,6 +44,4 @@ Rails.application.routes.draw do
   patch "/users/:user_id/storages/:storage_id/foods/:id", to: "foods#update", as: "update_user_storage_food"
   delete "/users/:user_id/storages/:storage_id/foods/:id/", to: "foods#destroy", as: "destroy_user_storage_food"
 
-
-
 end

@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  include AjaxHelper
+
   before_action :set_user
   before_action :set_storage, only: [:edit, :update, :destroy]
   before_action :set_storages, only: [:new, :create, :edit, :update]
@@ -14,11 +16,15 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
-    if @food.save
-      flash[:success] = "食品を登録しました。"
-      redirect_to user_storage_foods_url
-    else
-      render :new
+    respond_to do |format|
+      if @food.save
+        format.html
+        format.js { render ajax_redirect_to(user_storage_foods_url), 
+                    flash[:success] = "#{@food.fname}の情報を登録しました。" }
+      else
+        format.html { render :new }
+        format.js { render "messages/errors" }
+      end
     end
   end
 
@@ -26,17 +32,23 @@ class FoodsController < ApplicationController
   end
 
   def update
-    if @food.update(food_params)
-      # この時点で数量0の場合は削除処理を行う
-      if @food.quantity == 0
-        @food.destroy
-        flash[:success] = "#{@food.fname}を使い切りました。"
+    respond_to do |format|
+      if @food.update(food_params)
+        # この時点で数量0の場合は削除処理を行う
+        if @food.quantity == 0
+          @food.destroy
+          format.html
+          format.js { render ajax_redirect_to(user_storage_foods_url), 
+                      flash[:success] = "#{@food.fname}を使い切りました。" }
+        else
+          format.html
+          format.js { render ajax_redirect_to(user_storage_foods_url), 
+                      flash[:success] = "#{@food.fname}の情報を更新しました。" }
+        end
       else
-        flash[:success] = "食品の情報を更新しました。"
+        format.html { render :edit }
+        format.js { render "messages/errors" }
       end
-      redirect_to user_storage_foods_url(current_user)
-    else
-      render :edit
     end
   end
 

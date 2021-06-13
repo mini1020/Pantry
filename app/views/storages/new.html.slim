@@ -1,9 +1,0 @@
-- provide(:title, "Storage registration")
-- provide(:button_text, "登録する")
-
-h1 保管場所登録
-.row
-  .col-md-6.offset-md-3
-    = form_with model: @storage, url: user_storages_path(@user), local: true do |f|
-      = render "users/shared/error_messages", resource: @storage
-      = render "form", f: f
