@@ -23,7 +23,7 @@ class FoodsController < ApplicationController
                     flash[:notice] = "#{@food.fname}の情報を登録しました。" }
       else
         format.html { render :new }
-        format.js { render "messages/errors" }
+        format.js { render "messages/food_errors" }
       end
     end
   end
@@ -47,7 +47,7 @@ class FoodsController < ApplicationController
         end
       else
         format.html { render :edit }
-        format.js { render "messages/errors" }
+        format.js { render "messages/food_errors" }
       end
     end
   end

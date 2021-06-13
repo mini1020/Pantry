@@ -8,7 +8,6 @@ class Storage < ApplicationRecord
   validate :same_user_same_place_cannot_registered
 
   def same_user_same_place_cannot_registered
-    debugger
     if id.nil?
       if user_id.present? && place.present?
         if Storage.exists?(user_id: user_id, place: place)

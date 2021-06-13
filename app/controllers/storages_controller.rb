@@ -21,7 +21,7 @@ class StoragesController < ApplicationController
                     flash[:notice] = "#{@storage.place}を登録しました。" }
       else
         format.html { render :new }
-        format.js { render "messages/errors" }
+        format.js { render "messages/storage_errors" }
       end
     end
   end
@@ -37,7 +37,7 @@ class StoragesController < ApplicationController
                     flash[:notice] = "保管場所情報を更新しました。" }
       else
         format.html { render :edit }
-        format.js { render "messages/errors" }
+        format.js { render "messages/storage_errors" }
       end
     end
   end
