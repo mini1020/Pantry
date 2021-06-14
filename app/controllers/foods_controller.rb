@@ -34,9 +34,8 @@ class FoodsController < ApplicationController
   def update
     respond_to do |format|
       if @food.update(food_params)
-        # この時点で数量0の場合は削除処理を行う
         if @food.quantity == 0
-          @food.destroy
+          @food.destroy # この時点で数量0の場合は削除処理を行う
           format.html
           format.js { render ajax_redirect_to(user_storage_foods_url), 
                       flash[:notice] = "#{@food.fname}を使い切りました。" }
