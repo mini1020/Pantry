@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   include AjaxHelper
 
-  before_action :set_user, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_storage, only: [:edit, :update, :destroy]
   before_action :set_storages, only: [:new, :create, :edit, :update]
   before_action :set_food, only: [:edit, :update, :destroy]
@@ -12,8 +12,15 @@ class FoodsController < ApplicationController
   end
 
   def search
-    @foods = Food.where(storage_id: params[:storage_id])
-    @storage = Storage.find(params[:storage_id])
+    if params[:storage_id].present?
+      @foods = Food.where(storage_id: params[:storage_id])
+      @storage = Storage.find(params[:storage_id])
+    else
+      respond_to do |format|
+        format.js { render ajax_reload }
+      end
+    end
+    
     respond_to do |format|
       format.html
       format.json { render json: { foods: @foods, storage: @storage } }

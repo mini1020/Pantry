@@ -30,6 +30,7 @@ $(function() {
       $('.table__foods-index').remove();
 
       $(data.foods).each(function(index, food) {
+        console.log(data);
         $('tbody').append(
           `<tr class="table__foods-index">
             <td>${food.fname}</td>
