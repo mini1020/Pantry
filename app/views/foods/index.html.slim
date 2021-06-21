@@ -3,10 +3,12 @@
 h1 食品一覧
 .row
   .col-md-10.offset-md-1
-    = paginate(@foods)
+    / = paginate(@foods)
     .btn__storages--center
       = link_to "食品を追加する", new_user_storage_food_path(@user), remote: true, class: "btn main__btn"
       = link_to "保管場所一覧へ", user_storages_path(@user), class: "btn main__btn"
+
+      = collection_select :search, :place, @storages, :id, :place, { prompt: "すべての食品" }, class: "form-control-sm"
   
       - if @foods.any?
         table.table.text--center.table__font-color
@@ -19,18 +21,19 @@ h1 食品一覧
             th.noborder
           
           - @foods.each do |food|
-            tr
-              td = food.fname
-              td = food.quantity
-              td = l(food.purchase, formats: :long) if food.purchase.present?
-              td = l(food.expiration, formats: :long) if food.expiration.present?
-              td = where_storage(food.storage_id)
-              td
-                = link_to "編集", edit_user_storage_food_path(current_user.id, food.storage_id, food), remote: true, class: "btn btn--edit btn--margin"
-                = link_to "削除", destroy_user_storage_food_path(current_user.id, food.storage_id, food), method: :delete,
-                  data: { confirm: "削除してよろしいですか？" },
-                  class: "btn btn--destroy btn--margin"
-        = paginate(@foods) 
+            = render "foods/foods", food: food
+        /     tr
+        /       td = food.fname
+        /       td = food.quantity
+        /       td = l(food.purchase, formats: :long) if food.purchase.present?
+        /       td = l(food.expiration, formats: :long) if food.expiration.present?
+        /       td = where_storage(food.storage_id)
+        /       td
+        /         = link_to "編集", edit_user_storage_food_path(current_user.id, food.storage_id, food), remote: true, class: "btn btn--edit btn--margin"
+        /         = link_to "削除", destroy_user_storage_food_path(current_user.id, food.storage_id, food), method: :delete,
+        /           data: { confirm: "削除してよろしいですか？" },
+        /           class: "btn btn--destroy btn--margin"
+        / = paginate(@foods) 
 
       - else
           br
