@@ -1,0 +1,14 @@
+- provide(:button_text, "更新する") 
+
+.modal-dialog.modal-lg
+  .modal-content.modal--color
+    .modal-body
+      button.float-end.btn-close[data-bs-dismiss="modal"]
+      br
+      h1 食品編集
+
+      .js-message-errors
+
+      = form_with model: @food, url: update_user_storage_food_path(@storage.user_id, @storage.id, @food) do |f|
+        = render "users/shared/error_messages", resource: @food
+        = render "form", f: f

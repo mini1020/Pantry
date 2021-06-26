@@ -1,0 +1,9 @@
+- if instance.errors.full_messages.present? 
+  .error_explanation.js-message-errors
+    .alert.alert-danger role="alert"
+      = I18n.t("errors.messages.not_saved",
+          count: instance.errors.count,
+          resource: instance.class.model_name.human.downcase)
+    ul
+      - instance.errors.full_messages.each do |msg|
+        li = "#{msg}。"

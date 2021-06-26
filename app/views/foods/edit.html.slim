@@ -1,9 +1,0 @@
-- provide(:title, "Food edit")
-- provide(:button_text, "更新する") 
-
-h1 食品編集
-.row
-  .col-md-6.offset-md-3
-    = form_with model: @food, url: update_user_storage_food_path(@storage.user_id, @storage.id, @food), local: true do |f|
-      = render "users/shared/error_messages", resource: @food
-      = render "form", f: f

@@ -1,9 +1,0 @@
-- provide(:title, "Storage edit")
-- provide(:button_text, "更新する") 
-
-h1 保管場所編集
-.row
-  .col-md-6.offset-md-3
-    = form_with model: @storage, url: user_storage_path(@user), local: true do |f|
-      = render "users/shared/error_messages", resource: @storage
-      = render "form", f: f
