@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_074816) do
     t.integer "quantity", null: false
     t.date "purchase", null: false
     t.date "expiration"
-    t.date "notice"
     t.integer "storage_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
