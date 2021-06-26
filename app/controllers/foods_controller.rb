@@ -9,6 +9,8 @@ class FoodsController < ApplicationController
   def index
     @foods = current_user.foods.all.page(params[:page]).per(20)
     @storages = current_user.storages.all
+    @notices_tomorrow = current_user.foods.where(expiration: Date.current.next_day)
+    @notices_2days = current_user.foods.where(expiration: Date.current.since(2.days))
   end
 
   def search
