@@ -20,7 +20,7 @@ ja:
         fname: 名称
         quantity: 数量
         purchase: 購入日
-        expiration: 使い切り目安
+        expiration: 使い切り期限
         notice: お知らせ日
         storage_id: 保管場所
         storage: 保管場所

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 // attr()→HTML要素の属性の取得や設定ができるメソッド
 $(function() {
   $('#btn__destroy--request').attr('disabled', 'disabled');
@@ -26,18 +28,35 @@ $(function() {
       dataType: 'json', // サーバーから返却される型
     })
     .done(function(data){
-      // console.log(data);
       $('.table__foods-index').remove();
 
       $(data.foods).each(function(index, food) {
-        console.log(data);
+        // もしstorageの配列要素が複数ある場合は
+        if (Array.isArray(data.storage)) {
+          $(data.storage).each(function(index, storage){
+            // もし、food.storage_idの値がidと一致したら
+            if (food.storage_id == storage.id) {
+              place = storage.place;
+            }
+          });
+        } else {
+          place = data.storage.place
+          console.log(place);
+        }
+        // もし使い切り期限が入力されていなかった場合
+        if (food.expiration) {
+          var expiration = dayjs(food.expiration).format("YYYY/MM/DD");
+        } else {
+          var expiration = "";
+        }
+
         $('tbody').append(
           `<tr class="table__foods-index">
             <td>${food.fname}</td>
             <td>${food.quantity}</td>
-            <td>${food.purchase}</td>
-            <td>${food.expiration}</td>
-            <td>${data.storage.place}</td>
+            <td>${dayjs(food.purchase).format("YYYY/MM/DD")}</td>
+            <td>${expiration}</td>
+            <td>${place}</td>
             <td>
               <a class="btn btn--edit btn--margin" data-remote="true" href="/users/${data.storage.user_id}/storages/${food.storage_id}/foods/${food.id}/edit">
                 編集
@@ -48,6 +67,7 @@ $(function() {
             </td>
           </tr>`
         );
+        var place = null;
       })
     })
   });

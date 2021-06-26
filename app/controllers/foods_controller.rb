@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:edit, :update, :destroy]
 
   def index
-    @foods = current_user.foods.all
+    @foods = current_user.foods.all.page(params[:page]).per(20)
     @storages = current_user.storages.all
   end
 
@@ -16,14 +16,13 @@ class FoodsController < ApplicationController
       @foods = Food.where(storage_id: params[:storage_id])
       @storage = Storage.find(params[:storage_id])
     else
-      respond_to do |format|
-        format.js { render ajax_reload }
-      end
+      @foods = current_user.foods.all
+      @storage = current_user.storages.all
     end
     
     respond_to do |format|
-      format.html
       format.json { render json: { foods: @foods, storage: @storage } }
+      format.html
     end
   end
 
