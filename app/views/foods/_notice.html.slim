@@ -1,0 +1,21 @@
+
+.modal-dialog.modal-lg
+  .modal-content.modal--color
+    .modal-body
+      button.float-end.btn-close[data-bs-dismiss="modal"]
+      br
+      h1 使い切り期限のお知らせ
+      br
+        table.table.text--center
+            tr
+              th.border--color = Food.human_attribute_name :fname
+              th.border--color = Food.human_attribute_name :quantity
+              th.border--color = Food.human_attribute_name :purchase
+              th.border--color = Food.human_attribute_name :expiration
+            
+            - @notices.each do |notice|
+              tr
+                td.noborder = notice.fname
+                td.noborder = notice.quantity
+                td.noborder = l(notice.purchase, formats: :long) if notice.purchase.present?
+                td.noborder = l(notice.expiration, formats: :long) if notice.expiration.present?

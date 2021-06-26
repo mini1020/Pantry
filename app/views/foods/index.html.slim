@@ -3,7 +3,7 @@
 h1 食品一覧
 .row
   .col-md-10.offset-md-1
-    = paginate(@foods)
+    / = paginate(@foods)
     .btn__storages--center
       = link_to_if @storages.present?, "食品を追加する", new_user_storage_food_path(current_user), remote: true, class: "btn main__btn"
       = link_to "保管場所一覧へ", user_storages_path(current_user), class: "btn main__btn"
@@ -13,9 +13,9 @@ h1 食品一覧
       - if @foods.present?
         ul
           li.link__notice--left
-            = link_to_if @notices_tomorrow.present? || @notices_2days.present?, "【使い切り期限お知らせ】", user_storage_foods_notice_path, remote: true, class: "main__link"
-            - if @notices_tomorrow.present? || @notices_2days.present?
-              span.notices まもなく使い切り予定の食品が#{@notices_tomorrow.count + @notices_2days.count}点あります。
+            = link_to_if @notices.present?, "【使い切り期限のお知らせ】", user_storage_foods_notice_path, remote: true, class: "main__link"
+            - if @notices.present?
+              span.notices まもなく使い切り予定の食品が#{@notices.count}点あります。
         table.table.text--center.table__font-color
           tr
             th.noborder = Food.human_attribute_name :fname
@@ -27,7 +27,7 @@ h1 食品一覧
           
           - @foods.each do |food|
             = render "foods/foods", food: food
-          = paginate(@foods) 
+          / = paginate(@foods) 
 
       - else
           br

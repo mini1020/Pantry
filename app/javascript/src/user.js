@@ -40,8 +40,7 @@ $(function() {
             }
           });
         } else {
-          place = data.storage.place
-          console.log(place);
+          place = data.storage.place;
         }
         // もし使い切り期限が入力されていなかった場合
         if (food.expiration) {

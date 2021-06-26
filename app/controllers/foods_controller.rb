@@ -5,12 +5,11 @@ class FoodsController < ApplicationController
   before_action :set_storage, only: [:edit, :update, :destroy]
   before_action :set_storages, only: [:new, :create, :edit, :update]
   before_action :set_food, only: [:edit, :update, :destroy]
+  before_action :set_notices, only: [:index, :notice]
 
   def index
-    @foods = current_user.foods.all.page(params[:page]).per(20)
+    @foods = current_user.foods.all
     @storages = current_user.storages.all
-    @notices_tomorrow = current_user.foods.where(expiration: Date.current.next_day)
-    @notices_2days = current_user.foods.where(expiration: Date.current.since(2.days))
   end
 
   def search
@@ -69,6 +68,9 @@ class FoodsController < ApplicationController
     end
   end
 
+  def notice
+  end
+
   def destroy
     @food.destroy
     flash[:notice] = "#{@food.fname}の情報を削除しました。"
@@ -88,4 +90,7 @@ class FoodsController < ApplicationController
       @storages = Storage.where(user_id: current_user.id)
     end
 
+    def set_notices
+      @notices = current_user.foods.where(expiration: Date.current.next_day).or(current_user.foods.where(expiration: Date.current.since(2.days)))
+    end
 end
