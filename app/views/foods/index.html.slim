@@ -15,7 +15,7 @@ h1 食品一覧
           li.link__notice--left
             = link_to_if @notices.present?, "【使い切り期限のお知らせ】", user_storage_foods_notice_path, remote: true, class: "main__link"
             - if @notices.present?
-              span.notices まもなく使い切り予定の食品が#{@notices.count}点あります。
+              span style="color:#b94047;" class="notices" まもなく使い切り予定の食品が#{@notices.count}点あります。
         table.table.text--center.table__font-color
           tr
             th.noborder = Food.human_attribute_name :fname
