@@ -8,7 +8,7 @@ h1 ユーザー一覧
       li
         = link_to_if @destroy_users.present?, "【ユーザー情報削除申請】", destroy_request_admins_users_path, remote: true, class: "main__link"
         - if @destroy_users.present?
-          span.destroy--notice #{@destroy_users.count}件の依頼があります。
+          span style="color:#b94047;" class="notices" #{@destroy_users.count}件の依頼があります。
 
     table.table.text--center.table__font-color
       tr

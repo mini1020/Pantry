@@ -1,13 +1,14 @@
 class FoodsController < ApplicationController
   include AjaxHelper
-
+  before_action :authenticate_user! 
   before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_storage, only: [:edit, :update, :destroy]
   before_action :set_storages, only: [:new, :create, :edit, :update]
   before_action :set_food, only: [:edit, :update, :destroy]
+  before_action :set_notices, only: [:index, :notice]
 
   def index
-    @foods = current_user.foods.all.page(params[:page]).per(20)
+    @foods = current_user.foods.all
     @storages = current_user.storages.all
   end
 
@@ -67,6 +68,9 @@ class FoodsController < ApplicationController
     end
   end
 
+  def notice
+  end
+
   def destroy
     @food.destroy
     flash[:notice] = "#{@food.fname}の情報を削除しました。"
@@ -86,4 +90,7 @@ class FoodsController < ApplicationController
       @storages = Storage.where(user_id: current_user.id)
     end
 
+    def set_notices
+      @notices = current_user.foods.where(expiration: Date.current.next_day).or(current_user.foods.where(expiration: Date.current.since(2.days)))
+    end
 end
