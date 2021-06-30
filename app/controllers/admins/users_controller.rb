@@ -5,7 +5,7 @@ before_action :set_destroy_users, only: [:index, :destroy_request]
 before_action :authenticate_admin!
 
   def index
-    @users = User.page(params[:page]).per(5)
+    @users = User.page(params[:page]).per(10)
   end
 
   def edit

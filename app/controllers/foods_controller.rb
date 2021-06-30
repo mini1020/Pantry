@@ -12,18 +12,13 @@ class FoodsController < ApplicationController
     @storages = current_user.storages.all
   end
 
-  def search
-    if params[:storage_id].present?
-      @foods = Food.where(storage_id: params[:storage_id])
-      @storage = Storage.find(params[:storage_id])
+  def ajax
+    if params[:search].present?
+      @foods = Food.where(storage_id: params[:search])
+      @storage = Storage.find(params[:search])
     else
       @foods = current_user.foods.all
-      @storage = current_user.storages.all
-    end
-    
-    respond_to do |format|
-      format.json { render json: { foods: @foods, storage: @storage } }
-      format.html
+      @storages = current_user.storages.all
     end
   end
 
