@@ -1,12 +1,26 @@
-tr.table__foods-index
-  td = food.fname
-  td = food.quantity
-  td = l(food.purchase, formats: :long) if food.purchase.present?
-  td = l(food.expiration, formats: :long) if food.expiration.present?
-  td = where_storage(food.storage_id)
-  td
-    = link_to "編集", edit_user_storage_food_path(current_user.id, food.storage_id, food), remote: true, class: "btn btn--edit btn--margin"
-    = link_to "削除", destroy_user_storage_food_path(current_user.id, food.storage_id, food), method: :delete,
-      data: { confirm: "削除してよろしいですか？" },
-      class: "btn btn--destroy btn--margin"
-/ = paginate(@foods) 
+- if foods.blank?
+  br
+  p この保管場所に登録されている食品はありません。
+- else
+  / = paginate(@foods, remote: true)
+  table.table.text--center.table__font-color
+    tr
+      th.noborder = Food.human_attribute_name :fname
+      th.noborder = Food.human_attribute_name :quantity
+      th.noborder = Food.human_attribute_name :purchase
+      th.noborder = Food.human_attribute_name :expiration
+      th.noborder = Storage.human_attribute_name :place
+      th.noborder
+
+      - foods.each do |food|
+        tr class="#{(Date.current >= (food.expiration - 2.days) ? " foods__fontcolor-red" : "")}"
+          td = food.fname
+          td = food.quantity
+          td = l(food.purchase, formats: :long) if food.purchase.present?
+          td = l(food.expiration, formats: :long) if food.expiration.present?
+          td = where_storage(food.storage_id)
+          td
+            = link_to "編集", edit_user_storage_food_path(current_user.id, food.storage_id, food), remote: true, class: "btn btn--edit btn--margin"
+            = link_to "削除", destroy_user_storage_food_path(current_user.id, food.storage_id, food), method: :delete,
+              data: { confirm: "削除してよろしいですか？" },
+              class: "btn btn--destroy btn--margin"

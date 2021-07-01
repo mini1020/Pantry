@@ -1,11 +1,11 @@
 # 管理者
 class Admins::UsersController < ApplicationController
 before_action :set_user, only: [:edit, :update, :destroy]
-before_action :set_destroy_users, only: [:index, :destroy_request]
+before_action :set_destroy_users, only: [:index, :destroy_request, :bulk_deletion]
 before_action :authenticate_admin!
 
   def index
-    @users = User.page(params[:page]).per(5)
+    @users = User.page(params[:page]).per(10)
   end
 
   def edit
@@ -22,6 +22,16 @@ before_action :authenticate_admin!
   end
 
   def destroy_request
+  end
+
+  def bulk_deletion #ユーザー情報一括削除
+    ActiveRecord::Base.transaction do
+      @destroy_users.each do |user|
+        user.destroy!
+      end
+    end
+    flash[:success] = "依頼されたユーザー情報を削除しました。"
+    redirect_to admins_users_url
   end
 
   def destroy

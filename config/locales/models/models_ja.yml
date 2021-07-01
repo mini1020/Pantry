@@ -1,19 +1,14 @@
 ja:
   activerecord:
     models:
+      admin: 管理者
       user: ユーザー
       storage: 保管場所
       food: 食品
     attributes:
       user:
-        email: メールアドレス 
-        encrypted_password:
-        reset_password_token:
-        reset_password_sent_at:
-        remember_created_at:
         provider: プロバイダー
         uid: ユーザーID
-        uname: 名前
       storage: 
         place: 場所
       food: 
@@ -25,6 +20,12 @@ ja:
         storage_id: 保管場所
         storage: 保管場所
   attributes:
+    email: メールアドレス
+    encrypted_password: パスワード
+    reset_password_token:
+    reset_password_sent_at:
+    remember_created_at:
+    uname: 名前
     created_at: 作成日
     updated_at: 更新日
           

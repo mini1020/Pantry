@@ -117,6 +117,10 @@ a.main__link:hover{
   color: #b4866b;
 }
 
+li.index__option--inline {
+  display: inline-block;
+}
+
 //編集、削除ボタン
 .btn--edit {
   font-size: 0.8em;
@@ -142,6 +146,10 @@ a.main__link:hover{
   background-color: #ce5242;
 }
 
+#search--place {
+  display: none;
+}
+
 // 区切りのライン
 .horizon hr {
   border-top: 1px solid #856859;
@@ -164,7 +172,7 @@ ul {
 }
 
 .table__font-color th, .table__font-color td {
-  color: #491a00;;
+  color: #491a00;
 }
 
 .notices{

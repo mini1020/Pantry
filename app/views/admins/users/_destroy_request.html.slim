@@ -7,15 +7,22 @@
         h2.modal-title ユーザー情報削除依頼一覧
         br
         table.table.text--center
+          tr
+            th.border--color = User.human_attribute_name :uname
+            th.border--color = User.human_attribute_name :email
+            th.border--color
           - @destroy_users.each do |destroy_user|
-            tr
-              th.border--color = User.human_attribute_name :uname
-              th.border--color = User.human_attribute_name :email
-              th.border--color
             tr
               td.noborder = destroy_user.uname
               td.noborder = destroy_user.email
               td.noborder
                 = link_to "削除", admins_user_path(destroy_user), method: :delete,
-                  data: { confirm: "削除してよろしいですか？" },
+                  data: { confirm: "ユーザー情報を削除します。よろしいですか？" },
                   class: "btn btn--destroy btn--margin"
+          tr 
+            td.noborder colspan="3"
+          tr
+            td.noborder colspan="3"
+              = link_to "一括削除", bulk_deletion_admins_users_path, method: :delete,
+                data: { confirm: "ユーザー情報を一括削除します。よろしいですか？" },
+                class: "btn btn--destroy btn--margin"
