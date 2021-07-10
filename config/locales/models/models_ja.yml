@@ -6,6 +6,9 @@ ja:
       storage: 保管場所
       food: 食品
     attributes:
+      admin:
+        provider: プロバイダー
+        uid: ユーザーID
       user:
         provider: プロバイダー
         uid: ユーザーID
