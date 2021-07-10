@@ -12,6 +12,8 @@
               th.border--color = Food.human_attribute_name :quantity
               th.border--color = Food.human_attribute_name :purchase
               th.border--color = Food.human_attribute_name :expiration
+              th.border--color = Storage.human_attribute_name :place
+              th.border--color
             
             - @notices.each do |notice|
               tr
@@ -19,3 +21,8 @@
                 td.noborder = notice.quantity
                 td.noborder = l(notice.purchase, formats: :long) if notice.purchase.present?
                 td.noborder = l(notice.expiration, formats: :long) if notice.expiration.present?
+                td = where_storage(notice.storage_id)
+                td
+                  = link_to "削除", destroy_user_storage_food_path(current_user.id, notice.storage_id, notice), method: :delete,
+                    data: { confirm: "削除してよろしいですか？" },
+                    class: "btn btn--destroy btn--margin"
