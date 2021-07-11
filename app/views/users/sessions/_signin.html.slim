@@ -1,0 +1,14 @@
+= f.label :email, class: "label--fontstyle"
+= f.email_field :email, class: "form-control", required: true
+
+= f.label :password, class: "label--fontstyle"
+= f.password_field :password, class: "form-control", required: true
+
+.keep-signin
+  - if devise_mapping.rememberable?
+    = f.check_box :remember_me, class: "checkbox__remember"
+    = f.label :remember_me, class: "label--fontstyle"
+.btn__signin
+  = f.submit "ログイン", class: "btn main__btn"
+.horizon
+  hr
