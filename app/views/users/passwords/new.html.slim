@@ -4,15 +4,7 @@
 h1 パスワード再設定
 .row
   .col-md-10.offset-md-1
-    = form_with model: @user, url: user_password_path, local: true do |f|
+    = form_with(model: resource, url: user_password_path, local: true) do |f|
       = render "users/shared/error_messages", resource: resource
-
-      / = f.label :email, class: "label--fontstyle"
-      br
-      .col-md-6.offset-md-3
-        = f.email_field :email, autofocus: true, placeholder: "メールアドレスを入力してください", class: "form-control"
-      br
-      p パスワード再設定用URLを送信します。ご登録いただいているメールアドレスを入力し、<br>「送信する」ボタンをクリックしてください。 
-      .btn__password--center
-        = f.submit "送信する", class: "btn main__btn"
+      = render "shared/password_forget_mailaddress", f: f
 

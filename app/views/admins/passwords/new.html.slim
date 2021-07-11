@@ -1,11 +1,9 @@
-h2
-  | Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "admins/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "admins/shared/links"
+- provide(:title, "Admin password forget?")
+/ パスワードリセットメールの送信先アドレスを入力させるビュー
+
+h1 パスワード再設定
+.row
+  .col-md-10.offset-md-1
+    = form_with(model: resource, url: admin_password_path, local: true) do |f|
+      = render "users/shared/error_messages", resource: resource
+      = render "shared/password_forget_mailaddress", f: f
