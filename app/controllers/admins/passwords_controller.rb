@@ -38,6 +38,8 @@ class Admins::PasswordsController < Devise::PasswordsController
         set_flash_message!(:notice, :updated_not_active)
       end
       # respond_with resource, location: after_resetting_password_path_for(resource)
+      flash[:notice] = "パスワードを更新しました。"
+      debugger
       redirect_to after_resetting_password_path_for(resource)
     else
       set_minimum_password_length
@@ -48,7 +50,7 @@ class Admins::PasswordsController < Devise::PasswordsController
 
   protected
     def after_resetting_password_path_for(resource)
-      super(resource)
+      stored_location_for(resource) || admins_users_path
       # after_sign_in_path_forを呼んでる
       # Devise.sign_in_after_reset_password ? after_sign_in_path_for(resource) : new_session_path(resource_name)
     end
@@ -69,4 +71,3 @@ end
   # def after_sending_reset_password_instructions_path_for(resource_name)
   #   super(resource_name)
   # end
-end

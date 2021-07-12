@@ -38,6 +38,7 @@ class Users::PasswordsController < Devise::PasswordsController
         set_flash_message!(:notice, :updated_not_active)
       end
       # respond_with resource, location: after_resetting_password_path_for(resource)
+      flash[:notice] = "パスワードを更新しました。"
       redirect_to after_resetting_password_path_for(resource)
     else
       set_minimum_password_length

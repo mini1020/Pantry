@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   root "homes#top"
 
   devise_for :admins, controllers: {  
-    sessions: "admins/sessions"
+    sessions: "admins/sessions",
+    passwords: "admins/passwords"
   }
     namespace :admins do
       resources :users, only: [:index, :edit, :update, :destroy] do
