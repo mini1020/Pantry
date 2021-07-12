@@ -1,8 +1,8 @@
   = f.label :uname, class: "label--fontstyle"
-  = f.text_field :uname, autofocus: true, class: "form-control"
+  = f.text_field :uname, autofocus: true, class: "form-control", required: true
   
   = f.label :email, class: "label--fontstyle"
-  = f.email_field :email, class: "form-control"
+  = f.email_field :email, class: "form-control", required: true
   
   .label--fontstyle
     = f.label :password
@@ -10,10 +10,10 @@
       | (
       = @minimum_password_length
       |  文字以上)
-  = f.password_field :password, class: "form-control"
+  = f.password_field :password, class: "form-control", required: true
 
   = f.label :password_confirmation, class: "label--fontstyle"
-  = f.password_field :password_confirmation, class: "form-control"
+  = f.password_field :password_confirmation, class: "form-control", required: true
 
   .btn__registration--center
     = link_to "戻る", :back, class: "btn main__btn"
