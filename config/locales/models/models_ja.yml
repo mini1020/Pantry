@@ -12,6 +12,7 @@ ja:
       user:
         provider: プロバイダー
         uid: ユーザーID
+        is_deleted: 削除済み
       storage: 
         place: 場所
       food: 
