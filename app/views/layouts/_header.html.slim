@@ -3,11 +3,11 @@ nav.navbar.navbar-expand-lg.fixed-top style="background-color: #856859"
     = link_to "Pantry", root_path, id: "logo"  
     ul.navbar-nav
       - if admin_signed_in?
+        li = link_to "ユーザー一覧", admins_users_path, class: "nav__btn"
         li.nav-item.dropdown
           a.nav-link.link--hover.dropdown-toggle href="#" id="navbar__dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"
             = "管理者"
           ul.dropdown-menu.dropdown-menu-end#menu--color aria-labelledby="navbarDropdown"
-            li = link_to "ユーザー一覧", admins_users_path, class: "dropdown-item"
             li = link_to  "ログアウト", destroy_admin_session_path, method: :delete, class: "dropdown-item" 
 
       - elsif user_signed_in?
@@ -22,4 +22,4 @@ nav.navbar.navbar-expand-lg.fixed-top style="background-color: #856859"
 
       - else
         li = link_to "ログイン", new_user_session_path, class: "nav__btn"
-        li = link_to "ユーザー登録", new_user_registration_path, class: "nav__btn"
+        li = link_to "新規登録", new_user_registration_path, class: "nav__btn"

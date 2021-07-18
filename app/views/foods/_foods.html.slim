@@ -13,7 +13,7 @@
       th.noborder
 
       - foods.each do |food|
-        tr class="#{(Date.current >= (food.expiration - 2.days) ? " foods__fontcolor-red" : "")}"
+        tr class="#{(Date.current > food.expiration ? " foods__fontcolor-red" : "")}"
           td = food.fname
           td = food.quantity
           td = l(food.purchase, formats: :long) if food.purchase.present?

@@ -7,7 +7,12 @@ h1 食品一覧
       = link_to "食品を追加する", new_user_storage_food_path(current_user), remote: true, class: "btn main__btn #{ ' disabled' unless @storages.present? }"
       = link_to "保管場所一覧へ", user_storages_path(current_user), class: "btn main__btn"
 
-      - if @foods.present?
+      - if @storages.blank?
+        br
+        p 保管場所を登録してください。
+        p 保管場所登録後、食品登録ができるようになります。
+
+      - elsif @foods.present?
         ul
           li.index__option--inline
             = link_to_if @notices.present?, "【使い切り期限のお知らせ】", user_storage_foods_notice_path, remote: true, class: "main__link"

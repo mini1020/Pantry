@@ -19,10 +19,11 @@
                 = link_to "削除", admins_user_path(destroy_user), method: :delete,
                   data: { confirm: "ユーザー情報を削除します。よろしいですか？" },
                   class: "btn btn--destroy btn--margin"
-          tr 
-            td.noborder colspan="3"
-          tr
-            td.noborder colspan="3"
-              = link_to "一括削除", bulk_deletion_admins_users_path, method: :delete,
-                data: { confirm: "ユーザー情報を一括削除します。よろしいですか？" },
-                class: "btn btn--destroy btn--margin"
+          - if @destroy_users.count >= 2 
+            tr 
+              td.noborder colspan="3"
+            tr
+              td.noborder colspan="3"
+                = link_to "一括削除", bulk_deletion_admins_users_path, method: :delete,
+                  data: { confirm: "ユーザー情報を一括削除します。よろしいですか？" },
+                  class: "btn btn--destroy btn--margin"

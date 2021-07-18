@@ -2,18 +2,20 @@
 - if controller_name != 'sessions'
   = link_to "ログイン", new_session_path(resource_name)
   br
-/ - if devise_mapping.registerable? && controller_name != 'registrations'
-/   = link_to "新規登録", new_registration_path(resource_name)
-/   br
+
 - if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider|
-    = link_to "#{OmniAuth::Utils.camelize(provider.upcase)}アカウントでログイン", omniauth_authorize_path(resource_name, provider), class: "btn main__btn"
-    br
+  - resource_class.omniauth_providers.each do |provider| 
+    = link_to omniauth_authorize_path(resource_name, provider) do 
+      .btn__line-signin 
+        = image_tag("login_nomal.png", alt: "LINEでログイン", 
+                                       onmouseover: "this.src = '#{asset_path('login_hover.png')}'", 
+                                       onmouseout: "this.src = '#{asset_path('login_nomal.png')}'")
+        br
+
 - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
   p#link__password-forget
     |  パスワードをお忘れの方は
     = link_to "こちら", new_user_password_path
-  / br
 - if devise_mapping.confirmable? && controller_name != 'confirmations'
   = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
   br
