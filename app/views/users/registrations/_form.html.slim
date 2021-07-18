@@ -10,10 +10,10 @@
       | (
       = @minimum_password_length
       |  文字以上)
-  = f.password_field :password, class: "form-control", required: true
+  = f.password_field :password, class: "form-control"
 
   = f.label :password_confirmation, class: "label--fontstyle"
-  = f.password_field :password_confirmation, class: "form-control", required: true
+  = f.password_field :password_confirmation, class: "form-control"
 
   .btn__registration--center
     = link_to "戻る", :back, class: "btn main__btn"

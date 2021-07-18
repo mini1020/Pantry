@@ -1,5 +1,3 @@
-import dayjs from 'dayjs';
-
 // attr()→HTML要素の属性の取得や設定ができるメソッド
 $(function() {
   $('#btn__destroy--request').attr('disabled', 'disabled');
@@ -15,3 +13,4 @@ $(function() {
     }
   });
 });
+
