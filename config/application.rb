@@ -12,8 +12,9 @@ module Pantry
     config.load_defaults 6.0
     config.time_zone = 'Asia/Tokyo'
     config.i18n.default_locale = :ja
-    # config.generators.template_engine = :slim　#rails g で生成されるビューをslimに
+    config.generators.template_engine = :slim #rails g で生成されるビューをslimに
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.action_mailer.preview_path = "#{Rails.root}/app/mailers"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
