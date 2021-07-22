@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   before_action :admin_or_correct_user, only: [:show]
   
   def show
-    debugger
   end
 
   def edit_destroy_request
