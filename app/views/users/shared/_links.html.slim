@@ -4,13 +4,13 @@
   br
 
 - if devise_mapping.omniauthable?
-  - resource_class.omniauth_providers.each do |provider| 
-    = link_to omniauth_authorize_path(resource_name, provider) do 
-      .btn__line-signin 
-        = image_tag("login_nomal.png", alt: "LINEでログイン", 
-                                       onmouseover: "this.src = '#{asset_path('login_hover.png')}'", 
-                                       onmouseout: "this.src = '#{asset_path('login_nomal.png')}'")
-        br
+  / - resource_class.omniauth_providers.each do |provider| 
+  = link_to user_line_omniauth_authorize_path do 
+    .btn__line-signin 
+      = image_tag("login_nomal.png", alt: "LINEでログイン", 
+                                      onmouseover: "this.src = '#{asset_path('login_hover.png')}'", 
+                                      onmouseout: "this.src = '#{asset_path('login_nomal.png')}'")
+      br
 
 - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
   p#link__password-forget
