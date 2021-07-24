@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         email = @omniauth["info"]["email"] ? @omniauth["info"]["email"] : "#{@omniauth["uid"]}-#{@omniauth["provider"]}@example.com"
         @profile = current_user || User.create!(provider: @omniauth["provider"], 
                                                 uid: @omniauth["uid"], email: email, 
-                                                uname: @omniauth["info"]["uname"],
+                                                uname: @omniauth["info"]["name"],
                                                 password: Devise.friendly_token[0, 20])
       end
       @profile.set_values(@omniauth)
