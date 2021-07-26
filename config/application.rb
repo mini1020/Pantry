@@ -11,6 +11,7 @@ module Pantry
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.time_zone = 'Asia/Tokyo'
+    config.active_record.default_timezone = :local
     config.i18n.default_locale = :ja
     config.generators.template_engine = :slim #rails g で生成されるビューをslimに
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
