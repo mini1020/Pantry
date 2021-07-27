@@ -42,6 +42,11 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    
-
+    def correct_user
+      @user = User.find(params[:id])
+      unless @user == current_user
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to root_url
+      end
+    end
 end
