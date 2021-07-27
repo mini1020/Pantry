@@ -16,5 +16,6 @@
   = f.password_field :password_confirmation, class: "form-control"
 
   .btn__registration--center
-    = link_to "戻る", :back, class: "btn main__btn"
+    / newだったらトップページへ戻るボタンを表示
+    = link_to "トップページへ戻る", root_path, class: "btn main__btn"
     = f.submit yield(:button_text), class: "btn main__btn"
