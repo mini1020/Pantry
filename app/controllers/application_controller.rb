@@ -49,4 +49,24 @@ class ApplicationController < ActionController::Base
         redirect_to root_url
       end
     end
+
+    # 管理者が一般ユーザーページを閲覧しようとした場合
+    # 管理者ユーザーがログインしている状態且つ一般ユーザーがログインしていない状態で、
+    # if current_admin.logged_in && current_user.nil?
+      # flash[:danger] = "アクセス権限がありません。"
+      # redirect_to root_url
+    # end
+
+    # if アクセスしてきたユーザーが現在ログインしているユーザーでなかった場合
+      # flash[:danger] = "アクセス権限がありません。"
+      # redirect_to root_url
+    # end
+
+    def correct_admin
+      @admin = Admin.find(params[:id])
+      unless @admin == current_admin
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to root_url
+      end
+    end
 end

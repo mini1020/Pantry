@@ -18,6 +18,8 @@
   .btn__registration--center
     - if action_name == "new"
       = link_to "トップページへ戻る", root_path, class: "btn main__btn"
-    - elsif action_name == "edit"
+    - elsif controller_name == "users" && action_name == "edit"
+      = link_to "戻る", admins_users_path, class: "btn main__btn"
+    - elsif controller_name == "registrations" && action_name == "edit"
       = link_to "戻る", user_path(current_user), class: "btn main__btn"
     = f.submit yield(:button_text), class: "btn main__btn"
