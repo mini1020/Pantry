@@ -8,6 +8,7 @@ before_action :authenticate_admin!
     @users = User.page(params[:page]).per(10)
   end
 
+  #管理者側からのユーザー情報編集ページ
   def edit
   end
 

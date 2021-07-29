@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 # 一般ユーザーログイン処理
 class Users::SessionsController < Devise::SessionsController
+  before_action :admin_not_viewable
   # before_action :configure_sign_in_params, only: [:create]
   before_action :reject_user, only: [:create]
 

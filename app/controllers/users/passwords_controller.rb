@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+  before_action :admin_not_viewable
+  
   # GET /resource/password/new
   def new
     super

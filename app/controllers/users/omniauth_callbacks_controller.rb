@@ -1,4 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_action :admin_not_viewable
+  
   def line; basic_action end
 
   private
