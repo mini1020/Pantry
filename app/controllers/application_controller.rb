@@ -58,6 +58,13 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def general_user_not_viewable
+      if current_user && current_admin.nil?
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to root_url
+      end
+    end
+
     def correct_admin
       @admin = Admin.find(params[:id])
       unless @admin == current_admin

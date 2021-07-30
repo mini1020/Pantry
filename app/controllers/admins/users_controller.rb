@@ -1,6 +1,7 @@
 # 管理者
 class Admins::UsersController < ApplicationController
 before_action :set_user, only: [:edit, :update, :destroy]
+before_action :general_user_not_viewable
 before_action :set_destroy_users, only: [:index, :destroy_request, :bulk_deletion]
 before_action :authenticate_admin!
 
