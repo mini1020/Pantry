@@ -42,6 +42,34 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    
+    def correct_user
+      @user = User.find(params[:id])
+      unless @user == current_user
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to root_url
+      end
+    end
 
+    # 管理者はユーザー情報編集ページを除く一般ユーザーページを閲覧できない
+    def admin_not_viewable
+      if current_admin && current_user.nil?
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to root_url
+      end
+    end
+
+    def general_user_not_viewable
+      if current_user && current_admin.nil?
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to root_url
+      end
+    end
+
+    def correct_admin
+      @admin = Admin.find(params[:id])
+      unless @admin == current_admin
+        flash[:danger] = "アクセス権限がありません。"
+        redirect_to root_url
+      end
+    end
 end

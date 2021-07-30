@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user
+  before_action :admin_not_viewable
   before_action :authenticate_user! # deviseメソッド。ログインしていなければログイン画面にリダイレクトする
+  before_action :correct_user, only: [:edit_destroy_request, :update_destroy_request]
   before_action :admin_or_correct_user, only: [:show]
   
   def show

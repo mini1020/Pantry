@@ -1,5 +1,6 @@
 class StoragesController < ApplicationController
   include AjaxHelper
+  before_action :admin_not_viewable
   before_action :authenticate_user! 
   before_action :set_user
   before_action :set_storage, only: [:edit, :update, :destroy]

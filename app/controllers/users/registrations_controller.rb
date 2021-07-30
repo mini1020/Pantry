@@ -14,6 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    debugger
     super
   end
 

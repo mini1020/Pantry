@@ -1,6 +1,7 @@
 # 管理者
 class Admins::UsersController < ApplicationController
 before_action :set_user, only: [:edit, :update, :destroy]
+before_action :general_user_not_viewable
 before_action :set_destroy_users, only: [:index, :destroy_request, :bulk_deletion]
 before_action :authenticate_admin!
 
@@ -8,6 +9,7 @@ before_action :authenticate_admin!
     @users = User.page(params[:page]).per(10)
   end
 
+  #管理者側からのユーザー情報編集ページ
   def edit
   end
 

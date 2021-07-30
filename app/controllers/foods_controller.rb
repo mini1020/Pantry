@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
   include AjaxHelper
+  before_action :admin_not_viewable
   before_action :authenticate_user! 
   before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_storage, only: [:edit, :update, :destroy]
