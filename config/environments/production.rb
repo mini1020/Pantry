@@ -39,6 +39,23 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  # メールが配信できない場合に、エラーを発生させるかどうか
+  config.action_mailer.raise_delivery_errors = true
+
+  #実際にメールを配信するかどうか
+  config.action_mailer.perform_deliveries = true
+  # 配信方法の指定・詳細設定
+  config.action_mailer.delivery_method = :smtp # :letter_opener or :smtp 
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              "smtp.gmail.com",
+    domain:               "smtp.gmail.com",
+    user_name:            "Pantry0502@gmail.com",
+    password:             "pkatucvwsdjzjvba",
+    authentication:       "login",
+    enable_starttls_auto: true
+  }
+
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
