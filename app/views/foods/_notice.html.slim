@@ -21,8 +21,8 @@
                 td.noborder = notice.quantity
                 td.noborder = l(notice.purchase, formats: :long) if notice.purchase.present?
                 td.noborder = l(notice.expiration, formats: :long) if notice.expiration.present?
-                td = where_storage(notice.storage_id)
-                td
+                td.noborder = where_storage(notice.storage_id)
+                td.noborder
                   = link_to "削除", destroy_user_storage_food_path(current_user.id, notice.storage_id, notice), method: :delete,
                     data: { confirm: "削除してよろしいですか？" },
                     class: "btn btn--destroy btn--margin"
