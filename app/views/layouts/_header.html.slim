@@ -1,6 +1,6 @@
 nav.navbar.navbar-expand-lg.fixed-top style="background-color: #856859"
   .container-fluid
-    = link_to "Pantry", root_path, id: "logo"  
+    = link_to "Pantry", root_path, id: "logo" 
     ul.navbar-nav
       - if admin_signed_in?
         li = link_to "ユーザー一覧", admins_users_path, class: "nav__btn"

@@ -3,7 +3,7 @@
 body {
   background-color: #f8f4e6;
   color: #491a00;
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-family: "ヒラギノ丸ゴ ProN W4", "ＭＳ Ｐゴシック", sans-serif;
   background-image: url("lower_flame_2.png");
   background-size: 70% 25%;
@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.8em;
   letter-spacing: -2px;
   margin-bottom: 20px;
   text-align: center;
@@ -86,13 +86,14 @@ p {
 }
 
 .nav-item ul li a.dropdown-item {
-  font-size: 1.2em;
+  font-size: 1em;
   color: #491a00;
 }
 
 nav .container-fluid ul li #menu--color {
   background-color: #f8f4e6;
 }
+
 
 /* main */
 // メイン部分のボタン、リンク
@@ -169,6 +170,7 @@ ul {
 // テーブルのレイアウト、文字色
 .text--center {
   text-align: center;
+  vertical-align: middle;
 }
 
 .table__font-color th, .table__font-color td {
